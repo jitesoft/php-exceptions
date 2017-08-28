@@ -10,7 +10,6 @@ use Exception;
 use Jitesoft\Exceptions\JitesoftException;
 
 /**
- *
  * @group Exceptions
  */
 class JitesoftExceptionTest extends ExceptionTestCase {
