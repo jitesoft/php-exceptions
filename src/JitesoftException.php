@@ -64,7 +64,7 @@ abstract class JitesoftException extends Exception {
         ];
 
         $prev  = $this->getPrevious();
-        $inner = &$arr['inner'];
+        $inner = &$exception['inner'];
         while ($prev !== null) {
 
             if ($prev instanceof JitesoftException) {
@@ -82,11 +82,11 @@ abstract class JitesoftException extends Exception {
                 'line'  => $prev->getLine(),
                 'file'  => $prev->getFile(),
                 'trace' => $prev->getTrace(),
-                'inner' => null
+                'inner' => ($prev->getPrevious() !== null ? [] : null)
             ];
 
             $inner = &$inner['inner'];
-            $prev  = $this->getPrevious();
+            $prev  = $prev->getPrevious();
         }
 
         return $exception;

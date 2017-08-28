@@ -25,5 +25,10 @@
         "psr-4": {
             "Jitesoft\\Exceptions\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jitesoft\\Exceptions\\Tests\\": "tests/"
+        }
     }
 }

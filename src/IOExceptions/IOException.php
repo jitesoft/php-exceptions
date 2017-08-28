@@ -18,12 +18,12 @@ abstract class IOException extends JitesoftException {
     protected $badFile;
 
     /**
+     * @param string|null $fileName
      * @param string $message
      * @param int $code
      * @param Throwable|null $previous
-     * @param string $fileName
      */
-    public function __construct($message = "", $code = 0, Throwable $previous = null, string $fileName) {
+    public function __construct(?string $fileName, string $message = "", int $code = 0, ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);
 
         $this->badFile = $fileName;
@@ -32,10 +32,16 @@ abstract class IOException extends JitesoftException {
     /**
      * Get the name of the file that was accessed faulty.
      *
-     * @return string
+     * @return string|null
      */
-    public function getBadFile() : string {
+    public function getBadFile() : ?string {
         return $this->badFile;
+    }
+
+    public function toArray() {
+        $parent             = parent::toArray();
+        $parent['bad_file'] = $this->badFile;
+        return $parent;
     }
 
 }
