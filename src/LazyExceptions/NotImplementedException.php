@@ -8,6 +8,7 @@ namespace Jitesoft\Exceptions\LazyExceptions;
 
 use Jitesoft\Exceptions\JitesoftException;
 
-class NotImplementedException extends JitesoftException {
-
-}
+/**
+ * Exception to be thrown when a method is not yet implemented.
+ */
+class NotImplementedException extends JitesoftException { }
