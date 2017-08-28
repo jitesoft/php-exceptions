@@ -9,6 +9,7 @@ namespace Jitesoft\Exceptions\Tests\IOExceptions;
 use Exception;
 use Jitesoft\Exceptions\IOExceptions\FileNotFoundException;
 use Jitesoft\Exceptions\JitesoftException;
+use Jitesoft\Exceptions\Tests\BaseStructureTestTrait;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
@@ -20,6 +21,7 @@ use ReflectionClass;
  * @group RuntimeExceptions
  */
 class FileNotFoundExceptionTest extends TestCase {
+    use BaseStructureTestTrait;
 
     public function testWithOtherInnerException() {
 
@@ -28,16 +30,8 @@ class FileNotFoundExceptionTest extends TestCase {
         } catch (FileNotFoundException $ex) {
             $this->assertInstanceOf(Exception::class, $ex->getPrevious());
             $arr = $ex->toArray();
-
-            $inner = $arr['inner'];
-
-            $this->assertArrayHasKey('type', $inner);
-            $this->assertArrayHasKey('error', $inner);
-            $this->assertArrayHasKey('line', $inner);
-            $this->assertArrayHasKey('code', $inner);
-            $this->assertArrayHasKey('file', $inner);
-            $this->assertArrayHasKey('trace', $inner);
-            $this->assertArrayHasKey('inner', $inner);
+            $this->assertBaseStructure($ex);
+            $this->assertBaseStructure($arr['inner'], Exception::class);
         }
     }
 
@@ -53,36 +47,28 @@ class FileNotFoundExceptionTest extends TestCase {
 
         } catch (FileNotFoundException $ex) {
 
+            $this->assertBaseStructure($ex);
             $this->assertInstanceOf(FileNotFoundException::class, $ex->getPrevious());
-            $exceptionAsArray = $ex->getPrevious()->toArray();
+            $this->assertBaseStructure($ex->getPrevious());
 
-            $this->assertArrayHasKey('type', $exceptionAsArray);
-            $this->assertArrayHasKey('error', $exceptionAsArray);
-            $this->assertArrayHasKey('line', $exceptionAsArray);
-            $this->assertArrayHasKey('code', $exceptionAsArray);
-            $this->assertArrayHasKey('file', $exceptionAsArray);
-            $this->assertArrayHasKey('trace', $exceptionAsArray);
-            $this->assertArrayHasKey('inner', $exceptionAsArray);
-            $this->assertArrayHasKey('bad_file', $exceptionAsArray);
-
-            $innerSubset = [
-                'type' => FileNotFoundException::class,
-                'error' => 'Inner',
-                'file' => (new ReflectionClass($this))->getFileName(),
-                'trace' => [
-                    0 => [
-                        'function' => 'testWithAsInnerException',
-                        'class' => FileNotFoundExceptionTest::class
+            $this->assertArraySubset([
+                'inner' => [
+                    'type' => FileNotFoundException::class,
+                    'trace' => [
+                        0 => [
+                            'function' => 'testWithAsInnerException',
+                            'class' => FileNotFoundExceptionTest::class
+                        ]
                     ]
                 ],
-                'inner' => null,
-                'bad_file' => 'inner.txt'
-            ];
-
-            $this->assertArraySubset($innerSubset, $exceptionAsArray);
-            $this->assertArraySubset([
-                "inner" => $innerSubset
+                'bad_file' => "a.txt"
             ], $ex->toArray());
+
+            $this->assertArraySubset([
+                'type' => FileNotFoundException::class,
+                'bad_file' => 'inner.txt',
+                'inner' => null
+            ], $ex->getPrevious()->toArray());
         }
     }
 
@@ -99,27 +85,12 @@ class FileNotFoundExceptionTest extends TestCase {
 
             $this->assertInstanceOf(JitesoftException::class, $ex);
             $exceptionAsArray = $ex->toArray();
-            $this->assertArrayHasKey('type', $exceptionAsArray);
-            $this->assertArrayHasKey('error', $exceptionAsArray);
-            $this->assertArrayHasKey('line', $exceptionAsArray);
-            $this->assertArrayHasKey('code', $exceptionAsArray);
-            $this->assertArrayHasKey('file', $exceptionAsArray);
-            $this->assertArrayHasKey('trace', $exceptionAsArray);
-            $this->assertArrayHasKey('inner', $exceptionAsArray);
-            $this->assertArrayHasKey('bad_file', $exceptionAsArray);
+            $this->assertBaseStructure($exceptionAsArray);
 
             $this->assertArraySubset([
-                'type'  => FileNotFoundException::class,
                 'error' => 'Failed to open file none.txt.',
                 'code'  => 10,
                 'file'  => (new ReflectionClass($this))->getFileName(),
-                'trace' => [
-                    0 => [
-                        'function' => 'testToArray',
-                        'class'    => FileNotFoundExceptionTest::class
-                    ]
-                ],
-                'inner' => null,
                 'bad_file' => 'none.txt'
             ], $exceptionAsArray);
         }
@@ -134,27 +105,13 @@ class FileNotFoundExceptionTest extends TestCase {
             $this->assertJson($exceptionAsJson);
             $exceptionAsArray = json_decode($exceptionAsJson, true);
 
-            $this->assertArrayHasKey('type', $exceptionAsArray);
-            $this->assertArrayHasKey('error', $exceptionAsArray);
-            $this->assertArrayHasKey('line', $exceptionAsArray);
-            $this->assertArrayHasKey('code', $exceptionAsArray);
-            $this->assertArrayHasKey('file', $exceptionAsArray);
-            $this->assertArrayHasKey('trace', $exceptionAsArray);
-            $this->assertArrayHasKey('inner', $exceptionAsArray);
-            $this->assertArrayHasKey('bad_file', $exceptionAsArray);
+            $this->assertBaseStructure($exceptionAsArray);
 
             $this->assertArraySubset([
                 'type'  => FileNotFoundException::class,
                 'error' => 'abc none.txt',
                 'code'  => 5,
                 'file'  => (new ReflectionClass($this))->getFileName(),
-                'trace' => [
-                    0 => [
-                        'function' => 'testToJson',
-                        'class'    => FileNotFoundExceptionTest::class
-                    ]
-                ],
-                'inner' => null,
                 'bad_file' => 'none.txt'
             ], $exceptionAsArray);
         }
