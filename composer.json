@@ -1,0 +1,29 @@
+{
+    "name": "jitesoft/exceptions",
+    "description": "Common php exceptions used in Jitesoft projects.",
+    "type": "library",
+    "keywords": [ "exceptions" ],
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/jitesoft/php-exceptions",
+        "issues": "https://github.com/jitesoft/php-exceptions/issues"
+    },
+    "authors": [
+        {
+            "name": "Johannes Tegnér",
+            "email": "johannes@jitesoft.com"
+        }
+    ],
+    "require": {
+        "php": ">7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0",
+        "squizlabs/php_codesniffer": "3.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jitesoft\\Exceptions\\": "src/"
+        }
+    }
+}
