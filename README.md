@@ -8,6 +8,9 @@
 
 [![codecov](https://codecov.io/gh/jitesoft/php-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/jitesoft/php-exceptions)
 
+Exception classes commonly used in Jitesoft php projects.  
 
-A collection of exceptions commonly used - or derived from - in jitesoft php projects.
-This project exists only to ease the inclusion of given exceptions in internal php projects that shares exception classes. 
+All the exception classes implements a toArray method and implements the JsonSerializable interface.  
+The structure of the classes is supposed to be as logic as possible. If anything seems off, please post a issue or make a pull-request.
+No Exceptions will be moved or renamed without a new major version release.  
+

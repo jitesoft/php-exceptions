@@ -1,28 +1,30 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  InvalidOperationException.php - Part of the php-exceptions project.
+  HttpException.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\LogicExceptions;
+namespace Jitesoft\Exceptions\HttpExceptions;
 
 use Jitesoft\Exceptions\JitesoftException;
 use Throwable;
 
 /**
- * Exception to throw when an invalid operation has been invoked.
+ * Class HttpException
  *
+ * General HTTP exception.
+ * Mainly used as a base class for more specific HTTP exception types.
  */
-class InvalidOperationException extends JitesoftException {
+class HttpException extends JitesoftException {
 
     /**
-     * InvalidOperationException constructor.
+     * HttpException constructor.
      *
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Operation invalid.",
+    public function __construct(string $message = "Unexpected HTTP exception.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 

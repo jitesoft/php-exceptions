@@ -1,28 +1,30 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  InvalidOperationException.php - Part of the php-exceptions project.
+  AuthenticationException.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\LogicExceptions;
+namespace Jitesoft\Exceptions\SecurityExceptions;
 
 use Jitesoft\Exceptions\JitesoftException;
 use Throwable;
 
 /**
- * Exception to throw when an invalid operation has been invoked.
+ * Class AuthenticationException
  *
+ * General AuthenticationException.
+ * Mainly used as a base class for more specific authentication exception types.
  */
-class InvalidOperationException extends JitesoftException {
+class AuthenticationException extends JitesoftException {
 
     /**
-     * InvalidOperationException constructor.
+     * AuthenticationException constructor.
      *
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Operation invalid.",
+    public function __construct(string $message = "Authentication failed.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 

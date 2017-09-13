@@ -1,31 +1,34 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  InvalidOperationException.php - Part of the php-exceptions project.
+  SecurityException.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\LogicExceptions;
+namespace Jitesoft\Exceptions\SecurityExceptions;
 
 use Jitesoft\Exceptions\JitesoftException;
 use Throwable;
 
 /**
- * Exception to throw when an invalid operation has been invoked.
+ * Class SecurityException
  *
+ * General security exception.
+ * Mainly used as a base class for more specific security exceptions.
  */
-class InvalidOperationException extends JitesoftException {
+class SecurityException extends JitesoftException {
 
     /**
-     * InvalidOperationException constructor.
+     * SecurityException constructor.
      *
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Operation invalid.",
+    public function __construct(string $message = "Unexpected security error.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
         parent::__construct($message, $code, $previous);
     }
+
 }

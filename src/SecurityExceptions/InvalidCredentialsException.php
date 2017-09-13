@@ -1,31 +1,31 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  InvalidOperationException.php - Part of the php-exceptions project.
+  InvalidCredentialsException.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\LogicExceptions;
+namespace Jitesoft\Exceptions\SecurityExceptions;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Throwable;
 
 /**
- * Exception to throw when an invalid operation has been invoked.
+ * Class InvalidCredentialsException
  *
+ * Exception thrown due to invalid authentication credentials.
  */
-class InvalidOperationException extends JitesoftException {
+class InvalidCredentialsException extends AuthenticationException {
 
     /**
-     * InvalidOperationException constructor.
+     * InvalidCredentialsException constructor.
      *
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Operation invalid.",
+    public function __construct(string $message = "Invalid credentials.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
+
 }

@@ -7,40 +7,55 @@
 namespace Jitesoft\Exceptions\IOExceptions;
 
 use Jitesoft\Exceptions\JitesoftException;
+use Jitesoft\Exceptions\Traits\HasDirectoryTrait;
 use Throwable;
 
 /**
- * Base class for IO exceptions.
+ * Class IOException
+ *
+ * General IOException.
+ * Mainly used as a base class for more specific IOException types.
+ *
  */
-abstract class IOException extends JitesoftException {
-
-    /** @var string */
-    protected $badFile;
+class IOException extends JitesoftException {
+    use HasDirectoryTrait;
 
     /**
-     * @param string|null $fileName
+     * @param string $path
      * @param string $message
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct(?string $fileName, string $message = "", int $code = 0, ?Throwable $previous = null) {
+    public function __construct(string $path,
+                                string $message = "Unexpected IO error.",
+                                int $code = 0,
+                                ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);
 
-        $this->badFile = $fileName;
+        $this->path = $path;
     }
 
     /**
-     * Get the name of the file that was accessed faulty.
+     * Get the exception as an associative array.
      *
-     * @return string|null
+     * <pre>
+     * {
+     *   'type'  => (string)
+     *   'error' => (string)
+     *   'code'  => (int)
+     *   'file'  => (string)
+     *   'line'  => (int)
+     *   'trace' => (array)
+     *   'inner' => (array)
+     *   'path'  => (string)
+     * }
+     * </pre>
+     *
+     * @return array
      */
-    public function getBadFile() : ?string {
-        return $this->badFile;
-    }
-
     public function toArray() {
-        $parent             = parent::toArray();
-        $parent['bad_file'] = $this->badFile;
+        $parent         = parent::toArray();
+        $parent['path'] = $this->path;
         return $parent;
     }
 

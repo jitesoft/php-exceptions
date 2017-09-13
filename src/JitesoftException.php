@@ -7,31 +7,36 @@
 namespace Jitesoft\Exceptions;
 
 use Exception;
+use JsonSerializable;
+use Throwable;
 
 /**
  * Base class for Jitesoft Exception types.
  */
-abstract class JitesoftException extends Exception {
+abstract class JitesoftException extends Exception implements JsonSerializable {
 
     /**
-     * Get the exception as a json object.
-     *
-     * <pre>
-     * {
-     *   'type'  => 'error_type',    (string)
-     *   'error' => 'error_message', (string)
-     *   'code'  => error_code,      (int)
-     *   'file'  => file_name,       (string)
-     *   'line'  => file_line,       (int)
-     *   'trace' => stack_trace,     (object)
-     *   'inner' => inner_exception  (object)
-     * }
-     * </pre>
-     *
-     * @return string
+     * @param string $name
+     * @return mixed
      */
-    public function toJson() {
-        return json_encode($this->toArray());
+    public function __get($name) {
+        if (property_exists($this, $name)) {
+            return $this->{$name};
+        }
+    }
+
+    /**
+     * JitesoftException constructor.
+     *
+     * @param string $message
+     * @param int $code
+     * @param Throwable|null $previous
+     */
+    public function __construct(string $message = "",
+                                int $code = 0,
+                                ?Throwable $previous = null) {
+
+        parent::__construct($message, $code, $previous);
     }
 
     /**
@@ -39,20 +44,19 @@ abstract class JitesoftException extends Exception {
      *
      * <pre>
      * {
-     *   'type'  => 'error_type',    (string)
-     *   'error' => 'error_message', (string)
-     *   'code'  => error_code,      (int)
-     *   'file'  => file_name,       (string)
-     *   'line'  => file_line,       (int)
-     *   'trace' => stack_trace,     (array)
-     *   'inner' => inner_exception  (array)
+     *   'type'  => (string)
+     *   'error' => (string)
+     *   'code'  => (int)
+     *   'file'  => (string)
+     *   'line'  => (int)
+     *   'trace' => (array)
+     *   'inner' => (array)
      * }
      * </pre>
      *
      * @return array
      */
     public function toArray() {
-
         $exception = [
             'type'  => static::class,
             'error' => $this->getMessage(),
@@ -90,5 +94,16 @@ abstract class JitesoftException extends Exception {
         }
 
         return $exception;
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize() {
+        return json_encode($this->toArray());
     }
 }

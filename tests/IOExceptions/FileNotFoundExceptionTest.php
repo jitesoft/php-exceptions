@@ -25,7 +25,7 @@ class FileNotFoundExceptionTest extends ExceptionTestCase {
 
     public function testGetBadFile() {
         $ex = new FileNotFoundException("test.x");
-        $this->assertEquals("test.x", $ex->getBadFile());
+        $this->assertEquals("test.x", $ex->getBadPath());
     }
 
     public function testToArray() {
@@ -39,7 +39,7 @@ class FileNotFoundExceptionTest extends ExceptionTestCase {
                 'code'  => 10,
                 'inner' => null,
                 'type'  => FileNotFoundException::class,
-                'bad_file' => 'none.txt'
+                'bad_path' => 'none.txt'
             ], $array);
         }
     }
@@ -57,10 +57,8 @@ class FileNotFoundExceptionTest extends ExceptionTestCase {
                 'code'  => 5,
                 'inner' => null,
                 'type'  => FileNotFoundException::class,
-                'bad_file' => 'none.txt'
+                'bad_path' => 'none.txt'
             ], $array);
         }
     }
-
-
 }
