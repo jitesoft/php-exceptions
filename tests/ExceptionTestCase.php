@@ -1,28 +1,48 @@
 <?php
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   ExceptionTestCase.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 namespace Jitesoft\Exceptions\Tests;
 
+use Jitesoft\Exceptions\JitesoftException;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class ExceptionTestCase
  */
-class ExceptionTestCase extends TestCase {
+abstract class ExceptionTestCase extends TestCase {
+
+    /** @var string */
+    protected $expectedMessage = "";
+
+    protected function setExpectedMessage(string $message) {
+        $this->expectedMessage = $message;
+    }
+
+    public final function testGetDefaultMessage() {
+        try {
+            $this->throwDefaultMessage();
+        } catch (JitesoftException $ex) {
+            $this->assertEquals($this->expectedMessage, $ex->getMessage());
+        }
+    }
+
+    public final function testGetNoneDefaultMessage() {
+        try {
+            $this->throwNoneDefaultMessage();
+        } catch (JitesoftException $ex) {
+            $this->assertEquals($this->expectedMessage, $ex->getMessage());
+        }
+    }
+
+    public abstract function throwDefaultMessage();
+    public abstract function throwNoneDefaultMessage();
 
     protected static $properties = [];
 
-    /**
-     * Should return a list of properties which the base class will test (other than the ones already set in base).
-     *
-     * @return array
-     */
     protected static function getTestProperties() {
         return [
             "type",
@@ -35,18 +55,12 @@ class ExceptionTestCase extends TestCase {
         ];
     }
 
-    public static function setUpBeforeClass() {
-        parent::setUpBeforeClass();
-
-        self::$properties = self::getTestProperties();
-    }
-
-
-    /**
-     * @param array $ex
-     */
-    protected function assertHasConstantProperties(array $ex) {
-        $this->assertHasProperties($ex, self::$properties);
+    public function testHasProperties() {
+        try {
+            $this->throwDefaultMessage();
+        } catch (JitesoftException $ex) {
+            $this->assertHasProperties($ex->toArray(), static::getTestProperties());
+        }
     }
 
     /**

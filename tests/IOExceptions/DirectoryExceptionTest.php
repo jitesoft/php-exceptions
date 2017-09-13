@@ -1,28 +1,27 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  DirectoryNotFoundExceptionTest.php - Part of the php-exceptions project.
+  DirectoryExceptionTest.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\IOExceptions;
 
-use Jitesoft\Exceptions\IOExceptions\DirectoryNotFundException;
+use Jitesoft\Exceptions\IOExceptions\DirectoryException;
 
 /**
  * @group IOExceptions
  * @group Exceptions
  * @group RuntimeExceptions
  */
-class DirectoryNotFoundExceptionTest extends DirectoryExceptionTest {
+class DirectoryExceptionTest extends IOExceptionTest {
 
     public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to find directory /a/b/c.");
-        throw new DirectoryNotFundException("/a/b/c");
+        $this->setExpectedMessage("Unexpected directory error.");
+        throw new DirectoryException("/a/b/c");
     }
 
     public function throwNoneDefaultMessage() {
         $this->setExpectedMessage("Test");
-        throw new DirectoryNotFundException("abc", "Test");
+        throw new DirectoryException("/a/b/c", "Test");
     }
-
 }

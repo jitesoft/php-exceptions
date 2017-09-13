@@ -15,6 +15,14 @@ use Throwable;
  */
 class DirectoryNotFundException extends DirectoryException {
 
+    /**
+     * DirectoryNotFundException constructor.
+     *
+     * @param string $path
+     * @param string $message
+     * @param int $code
+     * @param null|Throwable $previous
+     */
     public function __construct(string $path,
                                 string $message = "Failed to find directory %s.",
                                 int $code = 0,

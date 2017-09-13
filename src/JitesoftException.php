@@ -12,6 +12,11 @@ use Throwable;
 
 /**
  * Base class for Jitesoft Exception types.
+ *
+ * @property string $message
+ * @property int    $code
+ * @property string $file
+ * @property int    $line
  */
 abstract class JitesoftException extends Exception implements JsonSerializable {
 
@@ -104,6 +109,6 @@ abstract class JitesoftException extends Exception implements JsonSerializable {
      * @since 5.4.0
      */
     public function jsonSerialize() {
-        return json_encode($this->toArray());
+        return $this->toArray();
     }
 }

@@ -30,6 +30,7 @@ class IOException extends JitesoftException {
                                 string $message = "Unexpected IO error.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
+
         parent::__construct($message, $code, $previous);
 
         $this->path = $path;

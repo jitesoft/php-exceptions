@@ -53,8 +53,7 @@ class JitesoftExceptionTest extends ExceptionTestCase {
                 ]
             ], $ex->toArray());
 
-            $json = $ex->toJson();
-            $this->assertEquals($json, json_encode($ex->toArray()));
+            $this->assertEquals(json_encode($ex), json_encode($ex->toArray()));
         }
     }
 
@@ -97,15 +96,20 @@ class JitesoftExceptionTest extends ExceptionTestCase {
                 ]
             ], $ex->toArray());
 
-            $json = $ex->toJson();
-            $this->assertEquals($json, json_encode($ex->toArray()));
+            $this->assertEquals(json_encode($ex), json_encode($ex->toArray()));
         }
-
-
     }
 
-}
+    public function throwDefaultMessage() {
+        $this->setExpectedMessage("");
+        throw new TestException();
+    }
 
+    public function throwNoneDefaultMessage() {
+        $this->setExpectedMessage("");
+        throw new TestException();
+    }
+}
 
 class TestException extends JitesoftException {
 

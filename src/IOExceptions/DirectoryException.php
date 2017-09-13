@@ -5,6 +5,7 @@
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\IOExceptions;
+
 use Throwable;
 
 /**
