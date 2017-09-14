@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\XmlExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\XmlExceptions\XmlSchemaValidationException;
 
 /**
@@ -14,14 +15,12 @@ use Jitesoft\Exceptions\XmlExceptions\XmlSchemaValidationException;
  */
 class XmlSchemaValidationExceptionTest extends XmlSchemaExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Xml did not match schema.");
-        throw new XmlSchemaValidationException("invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new XmlSchemaValidationException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new XmlSchemaValidationException("invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new XmlSchemaValidationException($message,"invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
     }
 
 }

@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\SecurityExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\SecurityExceptions\InvalidCredentialsException;
 
 /**
@@ -14,14 +15,12 @@ use Jitesoft\Exceptions\SecurityExceptions\InvalidCredentialsException;
  */
 class InvalidCredentialsExceptionTest extends AuthenticationExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Invalid credentials.");
-        throw new InvalidCredentialsException();
+    protected function getDefaultException(): JitesoftException {
+        return new InvalidCredentialsException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new InvalidCredentialsException("Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new InvalidCredentialsException($message);
     }
 
 }

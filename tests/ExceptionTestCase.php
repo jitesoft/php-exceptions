@@ -15,33 +15,26 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class ExceptionTestCase extends TestCase {
 
-    /** @var string */
-    protected $expectedMessage = "";
-
-    protected function setExpectedMessage(string $message) {
-        $this->expectedMessage = $message;
-    }
-
     public final function testGetDefaultMessage() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getDefaultException();
         } catch (JitesoftException $ex) {
-            $this->assertEquals($this->expectedMessage, $ex->getMessage());
+            $message = $this->getDefaultException()->getMessage();
+            $this->assertEquals($message, $ex->getMessage());
         }
     }
 
     public final function testGetNoneDefaultMessage() {
         try {
-            $this->throwNoneDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (JitesoftException $ex) {
-            $this->assertEquals($this->expectedMessage, $ex->getMessage());
+            $this->assertEquals("Test", $ex->getMessage());
         }
     }
 
-    public abstract function throwDefaultMessage();
-    public abstract function throwNoneDefaultMessage();
+    protected abstract function getDefaultException() : JitesoftException;
 
-    protected static $properties = [];
+    protected abstract function getMessageException(string $message): JitesoftException;
 
     protected static function getTestProperties() {
         return [
@@ -57,7 +50,7 @@ abstract class ExceptionTestCase extends TestCase {
 
     public final function testHasProperties() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getDefaultException();
         } catch (JitesoftException $ex) {
             $this->assertHasProperties($ex->toArray(), static::getTestProperties());
         }

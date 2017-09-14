@@ -8,6 +8,7 @@ namespace Jitesoft\Exceptions\Tests\HttpExceptions;
 
 use Jitesoft\Exceptions\HttpExceptions\HttpException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
+use Jitesoft\Exceptions\JitesoftException;
 
 /**
  * @group Exceptions
@@ -16,13 +17,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class HttpExceptionTest extends ExceptionTestCase {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Unexpected HTTP exception.");
-        throw new HttpException();
+    protected function getDefaultException(): JitesoftException {
+        return new HttpException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new HttpException("Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new HttpException($message);
     }
 }

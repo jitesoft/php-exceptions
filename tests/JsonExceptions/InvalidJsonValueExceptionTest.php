@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\JsonExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\JsonExceptions\InvalidJsonValueException;
 
 /**
@@ -18,19 +19,17 @@ class InvalidJsonValueExceptionTest extends JsonExceptionTest {
         return array_merge(parent::getTestProperties(), [ 'property_name' ]);
     }
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Invalid JSON value (Property: test).");
-        throw new InvalidJsonValueException("test", "invalid", "/a/b/c", "a.json");
+    protected function getDefaultException(): JitesoftException {
+        return new InvalidJsonValueException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new InvalidJsonValueException("test", "invalid", "/a/b/c", "a.json", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new InvalidJsonValueException($message,"test", "invalid", "/a/b/c", "a.json");
     }
 
     public function testGetPropertyName() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (InvalidJsonValueException $ex) {
             $this->assertEquals("test", $ex->getPropertyName());
             $this->assertEquals("test", $ex->propertyName);

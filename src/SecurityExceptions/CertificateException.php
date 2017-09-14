@@ -14,22 +14,22 @@ use Throwable;
  * Exception thrown when encountering a certificate problem.
  * Mainly used as a base class for more specific certificate exceptions.
  *
- * @property string $certificateName
+ * @property string|null $certificateName
  */
 class CertificateException extends SecurityException {
 
-    /** @var string */
+    /** @var null|string */
     protected $certificateName;
 
     /**
      * CertificateException constructor.
-     * @param string $certificateName
+     * @param null|string $certificateName
      * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $certificateName,
-                                string $message = "Encountered an issue with certificate named '%s'",
+    public function __construct(string $message = "Encountered an issue with certificate named '%s'",
+                                ?string $certificateName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
@@ -39,9 +39,9 @@ class CertificateException extends SecurityException {
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getCertificateName() : string {
+    public function getCertificateName() : ?string {
         return $this->certificateName;
     }
 
@@ -57,7 +57,7 @@ class CertificateException extends SecurityException {
      *   'line'             => (int)
      *   'trace'            => (array)
      *   'inner'            => (array)
-     *   'certificate_name' => (string)
+     *   'certificate_name' => (null|string)
      * }
      * </pre>
      *

@@ -7,6 +7,7 @@
 namespace Jitesoft\Exceptions\Tests\IOExceptions;
 
 use Jitesoft\Exceptions\IOExceptions\DirectoryNotFundException;
+use Jitesoft\Exceptions\JitesoftException;
 
 /**
  * @group IOExceptions
@@ -15,14 +16,12 @@ use Jitesoft\Exceptions\IOExceptions\DirectoryNotFundException;
  */
 class DirectoryNotFoundExceptionTest extends DirectoryExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to find directory /a/b/c.");
-        throw new DirectoryNotFundException("/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new DirectoryNotFundException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new DirectoryNotFundException("abc", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new DirectoryNotFundException($message, "/a/b/c");
     }
 
 }

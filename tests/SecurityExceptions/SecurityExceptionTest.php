@@ -14,14 +14,12 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class SecurityExceptionTest extends ExceptionTestCase {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Unexpected security error.");
-        throw new SecurityException();
+    protected function getDefaultException(): \Jitesoft\Exceptions\JitesoftException {
+        return new SecurityException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new SecurityException("Test");
+    public function getMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
+        throw new SecurityException($message);
     }
 
 }

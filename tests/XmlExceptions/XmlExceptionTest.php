@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\XmlExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 use Jitesoft\Exceptions\XmlExceptions\XmlException;
 
@@ -18,19 +19,17 @@ class XmlExceptionTest extends ExceptionTestCase {
         return array_merge(parent::getTestProperties(), [ 'xml', 'file_path', 'file_name' ]);
     }
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Unexpected XML error.");
-        throw new XmlException("invalid", "a.xml", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new XmlException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new XmlException("invalid", "a.xml", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new XmlException($message,"invalid", "a.xml", "/a/b/c");
     }
 
     public function testGetXml() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlException $ex) {
             $this->assertEquals("invalid", $ex->xml);
             $this->assertEquals("invalid", $ex->getXml());
@@ -39,7 +38,7 @@ class XmlExceptionTest extends ExceptionTestCase {
 
     public function testGetFilePath() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlException $ex) {
             $this->assertEquals("/a/b/c", $ex->path);
             $this->assertEquals("/a/b/c", $ex->getPath());
@@ -48,7 +47,7 @@ class XmlExceptionTest extends ExceptionTestCase {
 
     public function testGetFileName() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlException $ex) {
             $this->assertEquals("a.xml", $ex->fileName);
             $this->assertEquals("a.xml", $ex->getFileName());

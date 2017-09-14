@@ -8,6 +8,7 @@
 
 namespace Jitesoft\Exceptions\Tests\LazyExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\LazyExceptions\NotImplementedException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
@@ -16,13 +17,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class NotImplementedExceptionTest extends ExceptionTestCase {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Not yet implemented.");
-        throw new NotImplementedException();
+    protected function getDefaultException(): JitesoftException {
+        return new NotImplementedException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new NotImplementedException("Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new NotImplementedException($message);
     }
 }

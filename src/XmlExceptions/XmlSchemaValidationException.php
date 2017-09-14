@@ -20,21 +20,21 @@ class XmlSchemaValidationException extends XmlSchemaException {
     /**
      * XmlSchemaValidationException constructor.
      *
+     * @param string $message
      * @param null|string $schema
      * @param null|string $xml
      * @param null|string $schemaName
      * @param null|string $schemaPath
      * @param null|string $fileName
      * @param null|string $path
-     * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
     public function __construct(string $message = "Xml did not match schema.",
                                 ?string $schema = null,
                                 ?string $xml = null,
-                                ?string $schemaName,
-                                ?string $schemaPath,
+                                ?string $schemaName = null,
+                                ?string $schemaPath = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
                                 int $code = 0,

@@ -14,14 +14,12 @@ use Jitesoft\Exceptions\ValidationExceptions\ValidationException;
  */
 class ValidationExceptionTest extends ExceptionTestCase {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Validation failed.");
-        throw new ValidationException();
+    protected function getDefaultException(): \Jitesoft\Exceptions\JitesoftException {
+        return new ValidationException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new ValidationException("Test");
+    public function getMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
+        throw new ValidationException($message);
     }
 
 }

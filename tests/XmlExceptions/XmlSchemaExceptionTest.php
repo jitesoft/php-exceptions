@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\XmlExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\XmlExceptions\XmlSchemaException;
 
 /**
@@ -18,19 +19,17 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
         return array_merge(parent::getTestProperties(), [ 'schema', 'schema_path', 'schema_name' ]);
     }
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Unexpected XML Schema error.");
-        throw new XmlSchemaException("invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new XmlSchemaException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new XmlSchemaException("invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new XmlSchemaException($message,"invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
     }
 
     public function testGetSchema() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlSchemaException $ex) {
             $this->assertEquals("invalid", $ex->schema);
             $this->assertEquals("invalid", $ex->getSchema());
@@ -39,7 +38,7 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
 
     public function testGetSchemaPath() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlSchemaException $ex) {
             $this->assertEquals("/a/b/c/d", $ex->schemaPath);
             $this->assertEquals("/a/b/c/d", $ex->getSchemaPath());
@@ -48,7 +47,7 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
 
     public function testGetSchemaName() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XmlSchemaException $ex) {
             $this->assertEquals("a.xsd", $ex->getSchemaName());
             $this->assertEquals("a.xsd", $ex->schemaName);

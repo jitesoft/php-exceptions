@@ -7,6 +7,7 @@
 namespace Jitesoft\Exceptions\Tests\IOExceptions;
 
 use Jitesoft\Exceptions\IOExceptions\DirectoryException;
+use Jitesoft\Exceptions\JitesoftException;
 
 /**
  * @group IOExceptions
@@ -15,13 +16,11 @@ use Jitesoft\Exceptions\IOExceptions\DirectoryException;
  */
 class DirectoryExceptionTest extends IOExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Unexpected directory error.");
-        throw new DirectoryException("/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new DirectoryException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new DirectoryException("/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new DirectoryException($message,"/a/b/c");
     }
 }

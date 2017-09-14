@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\XmlExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\XmlExceptions\XmlParseException;
 
 /**
@@ -13,14 +14,12 @@ use Jitesoft\Exceptions\XmlExceptions\XmlParseException;
  */
 class XmlParseExceptionTest extends XmlExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to parse XML.");
-        throw new XmlParseException("invalid", "a.xml", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new XmlParseException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new XmlParseException("invalid", "a.xml", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new XmlParseException($message,"invalid", "a.xml", "/a/b/c");
     }
 
 }

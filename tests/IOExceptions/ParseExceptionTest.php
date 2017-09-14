@@ -7,6 +7,7 @@
 namespace Jitesoft\Exceptions\Tests\IOExceptions;
 
 use Jitesoft\Exceptions\IOExceptions\ParseException;
+use Jitesoft\Exceptions\JitesoftException;
 
 /**
  * @group IOExceptions
@@ -14,14 +15,13 @@ use Jitesoft\Exceptions\IOExceptions\ParseException;
  * @group RuntimeExceptions
  */
 class ParseExceptionTest extends FileExceptionTest {
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to parse file a.txt.");
-        throw new ParseException("a.txt", "/a/b/c");
+
+    protected function getDefaultException(): JitesoftException {
+        return new ParseException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new ParseException("a.txt", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new ParseException($message,"a.txt", "/a/b/c");
     }
     
 }

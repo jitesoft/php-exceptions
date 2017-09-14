@@ -7,6 +7,7 @@
 namespace Jitesoft\Exceptions\Tests\IOExceptions;
 
 use Jitesoft\Exceptions\IOExceptions\FileNotFoundException;
+use Jitesoft\Exceptions\JitesoftException;
 
 
 /**
@@ -16,13 +17,11 @@ use Jitesoft\Exceptions\IOExceptions\FileNotFoundException;
  */
 class FileNotFoundExceptionTest extends FileExceptionTest {
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to find file a.txt.");
-        throw new FileNotFoundException("a.txt", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new FileNotFoundException("a.txt", "/a/b/c");
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new FileNotFoundException("a.txt", "/a/b/c","Test");
+    public function getMessageException(string $message): JitesoftException {
+        throw new FileNotFoundException($message, "a.txt", "/a/b/c");
     }
 }

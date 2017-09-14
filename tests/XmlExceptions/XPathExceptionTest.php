@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\XmlExceptions;
 
+use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\XmlExceptions\XPathException;
 
 /**
@@ -17,19 +18,17 @@ class XPathExceptionTest extends XmlExceptionTest {
         return array_merge(parent::getTestProperties(), [ 'xpath' ]);
     }
 
-    public function throwDefaultMessage() {
-        $this->setExpectedMessage("Failed to evaluate XPath (invalid).");
-        throw new XPathException("invalid", "invalid", "a.xml", "/a/b/c");
+    protected function getDefaultException(): JitesoftException {
+        return new XPathException();
     }
 
-    public function throwNoneDefaultMessage() {
-        $this->setExpectedMessage("Test");
-        throw new XPathException("invalid", "invalid", "a.xml", "/a/b/c", "Test");
+    public function getMessageException(string $message): JitesoftException {
+        return new XPathException($message,"invalid", "invalid", "a.xml", "/a/b/c");
     }
 
     public function testGetXPath() {
         try {
-            $this->throwDefaultMessage();
+            throw $this->getMessageException("Test");
         } catch (XPathException $ex) {
             $this->assertEquals("invalid", $ex->getXPath());
             $this->assertEquals("invalid", $ex->xPath);
