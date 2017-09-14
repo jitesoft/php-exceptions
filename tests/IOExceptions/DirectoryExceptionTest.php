@@ -10,7 +10,7 @@ use Jitesoft\Exceptions\IOExceptions\DirectoryException;
 
 /**
  * @group IOExceptions
- * @group Exceptions
+ * @group DirectoryExceptions
  * @group RuntimeExceptions
  */
 class DirectoryExceptionTest extends IOExceptionTest {

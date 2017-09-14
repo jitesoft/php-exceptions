@@ -10,7 +10,7 @@ use Jitesoft\Exceptions\IOExceptions\DirectoryNotFundException;
 
 /**
  * @group IOExceptions
- * @group Exceptions
+ * @group DirectoryExceptions
  * @group RuntimeExceptions
  */
 class DirectoryNotFoundExceptionTest extends DirectoryExceptionTest {

@@ -48,6 +48,13 @@ class InvalidJsonValueException extends InvalidJsonException {
     }
 
     /**
+     * @return string
+     */
+    public function getPropertyName() : string {
+        return $this->propertyName;
+    }
+
+    /**
      * Get the exception as an associative array.
      *
      * <pre>

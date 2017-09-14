@@ -55,7 +55,7 @@ abstract class ExceptionTestCase extends TestCase {
         ];
     }
 
-    public function testHasProperties() {
+    public final function testHasProperties() {
         try {
             $this->throwDefaultMessage();
         } catch (JitesoftException $ex) {
@@ -67,7 +67,7 @@ abstract class ExceptionTestCase extends TestCase {
      * @param array $ex
      * @param array $properties
      */
-    protected function assertHasProperties(array $ex, array $properties) {
+    protected final function assertHasProperties(array $ex, array $properties) {
         foreach ($properties as $property) {
             $o = self::arrayHasKey($property);
             if (!$o->evaluate($ex, '', true)) {

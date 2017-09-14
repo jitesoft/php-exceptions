@@ -13,12 +13,9 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 /**
  * @group IOExceptions
- * @group Exceptions
  * @group RuntimeExceptions
  */
 class IOExceptionTest extends ExceptionTestCase {
-
-    protected $exceptionClass = IOException::class;
 
     public function testGetPath() {
         try {

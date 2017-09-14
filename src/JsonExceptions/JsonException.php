@@ -30,6 +30,13 @@ class JsonException extends JitesoftException {
     protected $json;
 
     /**
+     * @return string
+     */
+    public function getJson() {
+        return $this->json;
+    }
+
+    /**
      * JsonException constructor.
      *
      * @param string $json
@@ -42,7 +49,7 @@ class JsonException extends JitesoftException {
     public function __construct(string $json,
                                 string $path = null,
                                 string $fileName = null,
-                                string $message = "",
+                                string $message = "Unexpected json error.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
@@ -72,8 +79,10 @@ class JsonException extends JitesoftException {
      * @return array
      */
     public function toArray() {
-        $arr         = parent::toArray();
-        $arr['json'] = $this->json;
+        $arr              = parent::toArray();
+        $arr['json']      = $this->json;
+        $arr['file_name'] = $this->fileName;
+        $arr['file_path'] = $this->path;
         return $arr;
     }
 
