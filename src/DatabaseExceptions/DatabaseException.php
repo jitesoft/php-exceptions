@@ -24,7 +24,10 @@ class DatabaseException extends JitesoftException {
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct($message = "Unexpected database error.", $code = 0, Throwable $previous = null) {
+    public function __construct($message = "Unexpected database error.",
+                                $code = 0,
+                                Throwable $previous = null) {
+
         parent::__construct($message, $code, $previous);
     }
 

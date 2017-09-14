@@ -49,6 +49,7 @@ class XPathException extends XmlException {
     /**
      * @return null|string
      */
+    // @codingStandardsIgnoreLine
     public function getXPath() : ?string {
         return $this->xPath;
     }
