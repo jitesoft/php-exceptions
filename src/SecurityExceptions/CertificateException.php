@@ -5,6 +5,7 @@
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\SecurityExceptions;
+
 use Throwable;
 
 /**
@@ -13,7 +14,7 @@ use Throwable;
  * Exception thrown when encountering a certificate problem.
  * Mainly used as a base class for more specific certificate exceptions.
  *
- * @property string $certificate
+ * @property string $certificateName
  */
 class CertificateException extends SecurityException {
 
@@ -35,6 +36,13 @@ class CertificateException extends SecurityException {
         $this->certificateName = $certificateName;
 
         parent::__construct(sprintf($message, $certificateName), $code, $previous);
+    }
+
+    /**
+     * @return string
+     */
+    public function getCertificateName() : string {
+        return $this->certificateName;
     }
 
     /**

@@ -19,6 +19,7 @@ use Throwable;
  */
 class XPathException extends XmlException {
 
+    /** @var string */
     protected $xPath;
 
     /**
@@ -42,6 +43,13 @@ class XPathException extends XmlException {
         $this->xPath = $xPath;
 
         parent::__construct($xml, $fileName, $path, sprintf($message, $xPath), $code, $previous);
+    }
+
+    /**
+     * @return string
+     */
+    public function getXPath() : string {
+        return $this->xPath;
     }
 
     /**

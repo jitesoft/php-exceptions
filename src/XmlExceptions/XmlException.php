@@ -40,8 +40,8 @@ class XmlException extends JitesoftException {
      * @param Throwable|null $previous
      */
     public function __construct(string $xml,
-                                string $fileName = null,
-                                string $path = null,
+                                ?string $fileName = null,
+                                ?string $path = null,
                                 $message = "Unexpected XML error.",
                                 $code = 0,
                                 ?Throwable $previous = null) {
@@ -53,6 +53,12 @@ class XmlException extends JitesoftException {
         parent::__construct($message, $code, $previous);
     }
 
+    /**
+     * @return string
+     */
+    public function getXml() : string {
+        return $this->xml;
+    }
 
     /**
      * Get the exception as an associative array.

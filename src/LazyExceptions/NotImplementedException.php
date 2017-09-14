@@ -11,7 +11,6 @@ use Throwable;
 
 /**
  * Exception to be thrown when a method is not yet implemented.
- *
  */
 class NotImplementedException extends JitesoftException {
 
@@ -22,10 +21,10 @@ class NotImplementedException extends JitesoftException {
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(
-        string $message = "Not yet implemented.",
-        int $code = 0,
-        ?Throwable $previous = null) {
+    public function __construct(string $message = "Not yet implemented.",
+                                int $code = 0,
+                                ?Throwable $previous = null) {
+
         parent::__construct($message, $code, $previous);
     }
 }

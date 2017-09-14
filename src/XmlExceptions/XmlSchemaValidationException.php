@@ -40,7 +40,7 @@ class XmlSchemaValidationException extends XmlSchemaException {
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
-        parent::__construct($schema, $xml, $fileName, $path, $message, $code, $previous);
+        parent::__construct($schema, $xml, $schemaName, $schemaPath, $fileName, $path, $message, $code, $previous);
     }
 
 }

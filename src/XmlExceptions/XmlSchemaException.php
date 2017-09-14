@@ -17,6 +17,8 @@ use Throwable;
  * invalid.
  *
  * @property string $schema
+ * @property string $schemaName
+ * @property string $schemaPath
  */
 class XmlSchemaException extends XmlException {
 
@@ -59,6 +61,26 @@ class XmlSchemaException extends XmlException {
         parent::__construct($xml, $fileName, $path, $message, $code, $previous);
     }
 
+    /**
+     * @return string
+     */
+    public function getSchema() : string {
+        return $this->schema;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSchemaName() : string {
+        return $this->schemaName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSchemaPath() : string {
+        return $this->schemaPath;
+    }
 
     /**
      * Get the exception as an associative array.
@@ -84,8 +106,10 @@ class XmlSchemaException extends XmlException {
      * @return array
      */
     public function toArray() {
-        $arr           = parent::toArray();
-        $arr['schema'] = $this->schema;
+        $arr                = parent::toArray();
+        $arr['schema']      = $this->schema;
+        $arr['schema_path'] = $this->schemaPath;
+        $arr['schema_name'] = $this->schemaName;
         return $arr;
     }
 
