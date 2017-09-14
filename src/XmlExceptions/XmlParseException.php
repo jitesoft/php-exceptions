@@ -27,14 +27,14 @@ class XmlParseException extends XmlException {
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $xml,
+    public function __construct(string $message = "Failed to parse XML.",
+                                ?string $xml = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
-                                string $message = "Failed to parse XML.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
-        parent::__construct($xml, $fileName, $path, $message, $code, $previous);
+        parent::__construct($message, $xml, $fileName, $path, $code, $previous);
     }
 
 }

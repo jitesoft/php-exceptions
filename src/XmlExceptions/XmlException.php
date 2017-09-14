@@ -26,23 +26,23 @@ class XmlException extends JitesoftException {
     use HasDirectoryTrait;
     use HasFileTrait;
 
-    /** @var string */
+    /** @var string|null */
     protected $xml;
 
     /**
      * XmlException constructor.
      *
+     * @param string $message
      * @param string $xml
      * @param string|null $fileName
      * @param string|null $path
-     * @param string $message
      * @param int $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $xml,
+    public function __construct($message = "Unexpected XML error.",
+                                ?string $xml = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
-                                $message = "Unexpected XML error.",
                                 $code = 0,
                                 ?Throwable $previous = null) {
 
@@ -54,9 +54,9 @@ class XmlException extends JitesoftException {
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getXml() : string {
+    public function getXml() : ?string {
         return $this->xml;
     }
 
@@ -72,7 +72,7 @@ class XmlException extends JitesoftException {
      *   'line'        => (int)
      *   'trace'       => (array)
      *   'inner'       => (array)
-     *   'xml'         => (string)
+     *   'xml'         => (null|string)
      *   ´file_path'   => (null|string)
      *   'file_name'   => (null|string)
      * }

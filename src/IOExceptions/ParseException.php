@@ -18,18 +18,18 @@ class ParseException extends FileException {
     /**
      * ParseException constructor.
      *
-     * @param string $fileName
-     * @param string $path
      * @param string $message
+     * @param null|string $fileName
+     * @param null|string $path
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $fileName,
-                                string $path,
-                                string $message = "Failed to parse file %s.",
+    public function __construct(string $message = "Failed to parse file %s.",
+                                ?string $fileName = null,
+                                ?string $path = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
-        parent::__construct($fileName, $path, sprintf($message, $fileName), $code, $previous);
+        parent::__construct(sprintf($message, $fileName), $fileName, $path, $code, $previous);
     }
 }

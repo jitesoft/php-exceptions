@@ -44,13 +44,13 @@ class XmlSchemaException extends XmlException {
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $schema,
-                                string $xml,
-                                ?string $schemaName,
-                                ?string $schemaPath,
+    public function __construct(string $message = "Unexpected XML Schema error.",
+                                ?string $schema = null,
+                                ?string $xml = null,
+                                ?string $schemaName = null,
+                                ?string $schemaPath = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
-                                string $message = "Unexpected XML Schema error.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
@@ -58,27 +58,27 @@ class XmlSchemaException extends XmlException {
         $this->schemaName = $schemaName;
         $this->schemaPath = $schemaPath;
 
-        parent::__construct($xml, $fileName, $path, $message, $code, $previous);
+        parent::__construct($message, $xml, $fileName, $path, $code, $previous);
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSchema() : string {
+    public function getSchema() : ?string {
         return $this->schema;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSchemaName() : string {
+    public function getSchemaName() : ?string {
         return $this->schemaName;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getSchemaPath() : string {
+    public function getSchemaPath() : ?string {
         return $this->schemaPath;
     }
 
@@ -94,8 +94,8 @@ class XmlSchemaException extends XmlException {
      *   'line'        => (int)
      *   'trace'       => (array)
      *   'inner'       => (array)
-     *   'xml'         => (string)
-     *   'schema'      => (string)
+     *   'xml'         => (null|string)
+     *   'schema'      => (null|string)
      *   ´file_path'   => (null|string)
      *   'file_name'   => (null|string)
      *   'schema_path' => (null|string)

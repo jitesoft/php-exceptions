@@ -14,20 +14,21 @@ use Throwable;
 class FileNotFoundException extends FileException {
 
     /**
-     * @param string $fileName
-     * @param string $path
-     * @param string $message Can be used as a parametrised string (%s will replace fileName).
+     * FileNotFoundException constructor.
+     *
+     * @param string $message
+     * @param null|string $fileName
+     * @param null|string $path
      * @param int $code
-     * @param Throwable|null $previous
+     * @param null|Throwable $previous
      */
-    public function __construct(
-        string $fileName,
-        string $path,
-        string $message = "Failed to find file %s.",
-        int $code = 0,
-        ?Throwable $previous = null) {
+    public function __construct(string $message = "Failed to find file %s.",
+                                ?string $fileName = null,
+                                ?string $path = null,
+                                int $code = 0,
+                                ?Throwable $previous = null) {
 
-        parent::__construct($fileName, $path, sprintf($message, $fileName), $code, $previous);
+        parent::__construct(sprintf($message, $fileName), $fileName, $path, $code, $previous);
     }
 
 }

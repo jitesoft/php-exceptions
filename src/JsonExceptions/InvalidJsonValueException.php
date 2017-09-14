@@ -20,37 +20,37 @@ use Throwable;
  */
 class InvalidJsonValueException extends InvalidJsonException {
 
-    /** @var string */
+    /** @var null|string */
     protected $propertyName;
 
     /**
      * InvalidJsonValueException constructor.
      *
-     * @param string $propertyName
-     * @param string $json
+     * @param string $message
+     * @param null|string $propertyName
+     * @param null|string $json
      * @param null|string $path Optional file path.
      * @param null|string $fileName Optional file name.
-     * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $propertyName,
-                                string $json,
+    public function __construct(string $message = "Invalid JSON value (Property: %s).",
+                                ?string $propertyName = null,
+                                ?string $json = null,
                                 ?string $path = null,
                                 ?string $fileName = null,
-                                string $message = "Invalid JSON value (Property: %s).",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
         $this->propertyName = $propertyName;
 
-        parent::__construct($json, $path, $fileName, sprintf($message, $propertyName), $code, $previous);
+        parent::__construct(sprintf($message, $propertyName), $json, $path, $fileName, $code, $previous);
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getPropertyName() : string {
+    public function getPropertyName() : ?string {
         return $this->propertyName;
     }
 
@@ -66,8 +66,8 @@ class InvalidJsonValueException extends InvalidJsonException {
      *   'line'          => (int)
      *   'trace'         => (array)
      *   'inner'         => (array)
-     *   'json'          => (string)
-     *   'property_name' => (string)
+     *   'json'          => (null|string)
+     *   'property_name' => (null|string)
      * }
      * </pre>
      *

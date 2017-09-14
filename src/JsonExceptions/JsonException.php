@@ -26,30 +26,23 @@ class JsonException extends JitesoftException {
     use HasDirectoryTrait;
     use HasFileTrait;
 
-    /** @var string */
+    /** @var null|string */
     protected $json;
-
-    /**
-     * @return string
-     */
-    public function getJson() {
-        return $this->json;
-    }
 
     /**
      * JsonException constructor.
      *
-     * @param string $json
+     * @param string $message
+     * @param string|null $json
      * @param string|null $path
      * @param string|null $fileName
-     * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $json,
-                                string $path = null,
-                                string $fileName = null,
-                                string $message = "Unexpected json error.",
+    public function __construct(string $message = "Unexpected json error.",
+                                ?string $json = null,
+                                ?string $path = null,
+                                ?string $fileName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
@@ -58,6 +51,13 @@ class JsonException extends JitesoftException {
         $this->json     = $json;
 
         parent::__construct($message, $code, $previous);
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getJson() : ?string {
+        return $this->json;
     }
 
     /**

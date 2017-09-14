@@ -22,21 +22,21 @@ class JsonParseException extends JsonException {
     /**
      * JsonException constructor.
      *
-     * @param string $json
+     * @param string $message
+     * @param string|null $json
      * @param string|null $path
      * @param string|null $fileName
-     * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $json,
+    public function __construct(string $message = "Failed to parse JSON.",
+                                ?string $json = null,
                                 ?string $path = null,
                                 ?string $fileName = null,
-                                string $message = "Failed to parse JSON.",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
-        parent::__construct($json, $path, $fileName, $message, $code, $previous);
+        parent::__construct($message, $json, $path, $fileName, $code, $previous);
     }
 
 }

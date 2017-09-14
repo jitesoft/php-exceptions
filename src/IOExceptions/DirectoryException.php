@@ -19,17 +19,17 @@ class DirectoryException extends IOException {
     /**
      * DirectoryException constructor.
      *
-     * @param string $path
      * @param string $message
+     * @param null|string $path
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $path,
-                                string $message = "Unexpected directory error.",
+    public function __construct(string $message = "Unexpected directory error.",
+                                ?string $path = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
-        parent::__construct($path, $message, $code, $previous);
+        parent::__construct($message, $path, $code, $previous);
     }
 
 }

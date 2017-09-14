@@ -19,36 +19,37 @@ use Throwable;
  */
 class XPathException extends XmlException {
 
-    /** @var string */
+    /** @var null|string */
     protected $xPath;
 
     /**
      * XPathException constructor.
-     * @param string $xPath
-     * @param string $xml
+     *
+     * @param string $message
+     * @param null|string $xPath
+     * @param null|string $xml
      * @param null|string $fileName Optional file name.
      * @param null|string $path     Optional file path.
-     * @param string $message
      * @param int $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $xPath,
-                                string $xml,
+    public function __construct(string $message = "Failed to evaluate XPath (%s).",
+                                ?string $xPath = null,
+                                ?string $xml = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
-                                string $message = "Failed to evaluate XPath (%s).",
                                 int $code = 0,
                                 ?Throwable $previous = null) {
 
         $this->xPath = $xPath;
 
-        parent::__construct($xml, $fileName, $path, sprintf($message, $xPath), $code, $previous);
+        parent::__construct( sprintf($message, $xPath), $xml, $fileName, $path, $code, $previous);
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getXPath() : string {
+    public function getXPath() : ?string {
         return $this->xPath;
     }
 
@@ -64,10 +65,10 @@ class XPathException extends XmlException {
      *   'line'        => (int)
      *   'trace'       => (array)
      *   'inner'       => (array)
-     *   'xml'         => (string)
+     *   'xml'         => (null|string)
      *   ´file_path'   => (null|string)
      *   'file_name'   => (null|string)
-     *   'xpath'       => (string)
+     *   'xpath'       => (null|string)
      * }
      * </pre>
      *
