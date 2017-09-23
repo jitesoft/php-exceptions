@@ -17,11 +17,21 @@ use Jitesoft\Exceptions\JitesoftException;
  */
 class HttpExceptionTest extends ExceptionTestCase {
 
+    protected $expectedErrorCode = 0;
+
     protected function getDefaultException(): JitesoftException {
         return new HttpException();
     }
 
     public function getMessageException(string $message): JitesoftException {
         throw new HttpException($message);
+    }
+
+    public function testDefaultErrorCode() {
+        try {
+            throw $this->getDefaultException();
+        } catch (JitesoftException $ex) {
+            $this->assertEquals($this->expectedErrorCode, $ex->getCode());
+        }
     }
 }

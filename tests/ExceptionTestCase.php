@@ -34,6 +34,8 @@ abstract class ExceptionTestCase extends TestCase {
 
     protected abstract function getDefaultException() : JitesoftException;
 
+    // TODO: Rename to `throwMessageException` instead of 'get'.
+    // TODO: Or change all occurrences where it throws to instead just return.
     protected abstract function getMessageException(string $message): JitesoftException;
 
     protected static function getTestProperties() {
