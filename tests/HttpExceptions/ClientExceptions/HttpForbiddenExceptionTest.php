@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\HttpExceptions\ClientExceptions;
 
+use Jitesoft\Exceptions\HttpExceptions\ClientExceptions\HttpForbiddenException;
 use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\HttpExceptions\HttpExceptionTest;
 

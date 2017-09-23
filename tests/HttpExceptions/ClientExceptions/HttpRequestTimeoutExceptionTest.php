@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\HttpExceptions\ClientExceptions;
 
+use Jitesoft\Exceptions\HttpExceptions\ClientExceptions\HttpRequestTimeoutException;
 use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\HttpExceptions\HttpExceptionTest;
 

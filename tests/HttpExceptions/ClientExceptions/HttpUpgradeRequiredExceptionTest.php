@@ -6,6 +6,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\HttpExceptions\ClientExceptions;
 
+use Jitesoft\Exceptions\HttpExceptions\ClientExceptions\HttpUpgradeRequiredException;
 use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\HttpExceptions\HttpExceptionTest;
 
@@ -25,6 +26,10 @@ class HttpUpgradeRequiredExceptionTest extends HttpExceptionTest {
 
     public function getMessageException(string $message): JitesoftException {
         return new HttpUpgradeRequiredException($message);
+    }
+
+    protected static function getTestProperties() {
+        return array_merge(parent::getTestProperties(), ['protocol']);
     }
 
 }
