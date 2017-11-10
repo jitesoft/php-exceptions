@@ -4,7 +4,7 @@
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\Tests\Database;
+namespace Jitesoft\Exceptions\Tests\Database\Entity;
 
 use Jitesoft\Exceptions\Database\Entity\EntityException;
 use Jitesoft\Exceptions\JitesoftException;
