@@ -22,7 +22,7 @@ class FileExceptionTest extends IOExceptionTest {
     }
 
     protected function getDefaultException(): JitesoftException {
-        return new FileException("a.txt", "/a/b/c");
+        return new FileException();
     }
 
     public function getMessageException(string $message): JitesoftException {

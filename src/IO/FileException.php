@@ -37,7 +37,6 @@ class FileException extends IOException {
         parent::__construct($message, $path, $code, $previous);
     }
 
-
     /**
      * Get the exception as an associative array.
      *
