@@ -14,6 +14,14 @@ use Jitesoft\Exceptions\JitesoftException;
  */
 class JitesoftExceptionTest extends ExceptionTestCase {
 
+    public function testGetInvalid() {
+        try {
+            throw new TestException();
+        } catch (JitesoftException $ex) {
+            $this->assertNull($ex->abcdefghijklmnopqrstuvwxyzåäö);
+        }
+    }
+
     public function testInnerExceptionWhichIsInherited() {
         try {
             throw new TestException("test outer", 1, new TestException("test inner", 2, null));
