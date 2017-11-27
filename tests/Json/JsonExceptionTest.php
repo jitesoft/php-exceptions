@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Json;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Json\JsonException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
@@ -20,17 +19,17 @@ class JsonExceptionTest extends ExceptionTestCase {
         return array_merge(parent::getTestProperties(), [ 'json', 'file_name', 'file_path' ]);
     }
 
-    protected function getDefaultException(): JitesoftException {
-        return new JsonException();
+    protected function throwDefaultException() {
+        throw new JsonException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new JsonException($message,"invalid", "/a/b/c", "a.json");
     }
 
     public function testGetJson() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch(JsonException $ex) {
             $this->assertEquals("invalid", $ex->getJson());
             $this->assertEquals("invalid", $ex->json);
@@ -39,7 +38,7 @@ class JsonExceptionTest extends ExceptionTestCase {
 
     public function testGetFileName() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (JsonException $ex) {
             $this->assertEquals("a.json", $ex->getFileName());
             $this->assertEquals("a.json", $ex->fileName);
@@ -48,7 +47,7 @@ class JsonExceptionTest extends ExceptionTestCase {
 
     public function testGetPath() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (JsonException $ex) {
             $this->assertEquals("/a/b/c", $ex->getPath());
             $this->assertEquals("/a/b/c", $ex->path);

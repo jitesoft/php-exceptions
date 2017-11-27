@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpRequestTimeoutException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpRequestTimeoutExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 408;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpRequestTimeoutException();
+    protected function throwDefaultException() {
+        throw new HttpRequestTimeoutException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpRequestTimeoutException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpRequestTimeoutException($message);
     }
 
 }

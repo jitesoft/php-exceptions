@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\Validation\ValidationException;
  */
 class ValidationExceptionTest extends ExceptionTestCase {
 
-    protected function getDefaultException(): \Jitesoft\Exceptions\JitesoftException {
-        return new ValidationException();
+    protected function throwDefaultException() {
+        throw new ValidationException();
     }
 
-    public function getMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
+    public function throwMessageException(string $message) {
         throw new ValidationException($message);
     }
 

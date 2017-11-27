@@ -9,6 +9,8 @@ namespace Jitesoft\Exceptions\Tests;
 use Jitesoft\Exceptions\JitesoftException;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
+use ReflectionParameter;
 
 /**
  * Class ExceptionTestCase
@@ -17,26 +19,44 @@ abstract class ExceptionTestCase extends TestCase {
 
     public final function testGetDefaultMessage() {
         try {
-            throw $this->getDefaultException();
+            $this->throwDefaultException();
         } catch (JitesoftException $ex) {
-            $message = $this->getDefaultException()->getMessage();
-            $this->assertEquals($message, $ex->getMessage());
+
+            $message = array_filter(
+                (new ReflectionClass(get_class($ex)))->getConstructor()->getParameters(),
+                function(ReflectionParameter $parm) {
+                    return $parm->getName() === "message";
+                }
+            );
+
+            /** @var $message ReflectionParameter[] */
+            $this->assertNotEmpty($message);
+
+            $message = $message[0]->getDefaultValue();
+            $count   = substr_count($message, '%s');
+            $args    = array_fill(0, $count, '');
+
+            $this->assertEquals(sprintf($message, ...$args), $ex->getMessage());
         }
     }
 
     public final function testGetNoneDefaultMessage() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (JitesoftException $ex) {
             $this->assertEquals("Test", $ex->getMessage());
         }
     }
 
-    protected abstract function getDefaultException() : JitesoftException;
+    /**
+     * @throws JitesoftException
+     */
+    protected abstract function throwDefaultException();
 
-    // TODO: Rename to `throwMessageException` instead of 'get'.
-    // TODO: Or change all occurrences where it throws to instead just return.
-    protected abstract function getMessageException(string $message): JitesoftException;
+    /**
+     * @throws JitesoftException
+     */
+    protected abstract function throwMessageException(string $message);
 
     protected static function getTestProperties() {
         return [
@@ -52,7 +72,7 @@ abstract class ExceptionTestCase extends TestCase {
 
     public final function testHasProperties() {
         try {
-            throw $this->getDefaultException();
+            $this->throwDefaultException();
         } catch (JitesoftException $ex) {
             $this->assertHasProperties($ex->toArray(), static::getTestProperties());
         }

@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Logic;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Logic\InvalidOperationException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
@@ -15,11 +14,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class InvalidOperationExceptionTest extends ExceptionTestCase {
 
-    protected function getDefaultException(): JitesoftException {
-        return new InvalidOperationException();
+    protected function throwDefaultException() {
+        throw new InvalidOperationException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new InvalidOperationException($message);
     }
 

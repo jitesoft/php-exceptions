@@ -100,12 +100,12 @@ class JitesoftExceptionTest extends ExceptionTestCase {
         }
     }
 
-    protected function getDefaultException(): \Jitesoft\Exceptions\JitesoftException {
-        return new TestException();
+    protected function throwDefaultException(): \Jitesoft\Exceptions\JitesoftException {
+        throw new TestException();
     }
 
-    public function getMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
-        return new TestException($message);
+    public function throwMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
+        throw new TestException($message);
     }
 }
 

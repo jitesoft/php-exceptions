@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Xml;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Xml\XmlParseException;
 
 /**
@@ -14,11 +13,11 @@ use Jitesoft\Exceptions\Xml\XmlParseException;
  */
 class XmlParseExceptionTest extends XmlExceptionTest {
 
-    protected function getDefaultException(): JitesoftException {
-        return new XmlParseException();
+    protected function throwDefaultException() {
+        throw new XmlParseException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new XmlParseException($message,"invalid", "a.xml", "/a/b/c");
     }
 

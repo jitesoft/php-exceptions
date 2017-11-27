@@ -1,25 +1,22 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  SecurityExceptionTest.php - Part of the php-exceptions project.
+  AssertionExceptionTest.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\Tests\Security;
+namespace Jitesoft\Exceptions\Tests\Assertions;
 
-use Jitesoft\Exceptions\Security\SecurityException;
+use Jitesoft\Exceptions\Assertion\AssertionException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
-/**
- * @group SecurityExceptions
- */
-class SecurityExceptionTest extends ExceptionTestCase {
+class AssertionExceptionTest extends ExceptionTestCase {
 
     protected function throwDefaultException() {
-        throw new SecurityException();
+        throw new AssertionException();
     }
 
     public function throwMessageException(string $message) {
-        throw new SecurityException($message);
+        throw new AssertionException($message);
     }
 
 }

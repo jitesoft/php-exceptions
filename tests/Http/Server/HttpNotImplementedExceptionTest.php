@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Server;
 
 use Jitesoft\Exceptions\Http\Server\HttpNotImplementedException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpNotImplementedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 501;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpNotImplementedException();
+    protected function throwDefaultException() {
+        throw new HttpNotImplementedException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpNotImplementedException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpNotImplementedException($message);
     }
 
 }

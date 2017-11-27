@@ -14,12 +14,12 @@ use Jitesoft\Exceptions\Security\AuthenticationException;
  */
 class AuthenticationExceptionTest extends SecurityExceptionTest {
 
-    protected function getDefaultException(): \Jitesoft\Exceptions\JitesoftException {
-        return new AuthenticationException();
+    protected function throwDefaultException() {
+        throw new AuthenticationException();
     }
 
-    public function getMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
-        return new AuthenticationException($message);
+    public function throwMessageException(string $message) {
+        throw new AuthenticationException($message);
     }
 
 }

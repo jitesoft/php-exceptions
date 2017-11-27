@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpUpgradeRequiredException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpUpgradeRequiredExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 426;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpUpgradeRequiredException();
+    protected function throwDefaultException() {
+        throw new HttpUpgradeRequiredException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpUpgradeRequiredException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpUpgradeRequiredException($message);
     }
 
     protected static function getTestProperties() {

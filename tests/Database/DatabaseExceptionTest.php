@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Database;
 
 use Jitesoft\Exceptions\Database\DatabaseException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 /**
@@ -17,11 +16,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class DatabaseExceptionTest extends ExceptionTestCase {
 
-    protected function getDefaultException() : JitesoftException {
-        return new DatabaseException();
+    protected function throwDefaultException() {
+        throw new DatabaseException();
     }
 
-    public function getMessageException(string $message) : JitesoftException {
-        return new DatabaseException($message);
+    public function throwMessageException(string $message) {
+        throw new DatabaseException($message);
     }
 }

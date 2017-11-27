@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Security;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Security\CertificateException;
 
 /**
@@ -18,17 +17,17 @@ class CertificateExceptionTest extends SecurityExceptionTest {
         return array_merge(parent::getTestProperties(), [ 'certificate_name' ]);
     }
 
-    protected function getDefaultException(): JitesoftException {
-        return new CertificateException();
+    protected function throwDefaultException() {
+        throw new CertificateException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new CertificateException($message, "test.cert");
+    public function throwMessageException(string $message) {
+        throw new CertificateException($message, "test.cert");
     }
 
     public function testGetCertificateName() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (CertificateException $ex) {
             $this->assertEquals("test.cert", $ex->getCertificateName());
             $this->assertEquals("test.cert", $ex->certificateName);

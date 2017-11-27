@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpLengthRequiredException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpLengthRequiredExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 411;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpLengthRequiredException();
+    protected function throwDefaultException() {
+        throw new HttpLengthRequiredException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpLengthRequiredException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpLengthRequiredException($message);
     }
 
 }

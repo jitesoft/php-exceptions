@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Json;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Json\JsonParseException;
 
 /**
@@ -15,11 +14,11 @@ use Jitesoft\Exceptions\Json\JsonParseException;
  */
 class JsonParseExceptionTest extends JsonExceptionTest {
 
-    protected function getDefaultException(): JitesoftException {
-        return new JsonParseException();
+    protected function throwDefaultException() {
+        throw new JsonParseException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new JsonParseException($message,"invalid", "/a/b/c", "a.json");
+    public function throwMessageException(string $message) {
+        throw new JsonParseException($message,"invalid", "/a/b/c", "a.json");
     }
 }

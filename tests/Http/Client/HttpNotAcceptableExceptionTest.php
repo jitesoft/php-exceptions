@@ -20,12 +20,12 @@ class HttpNotAcceptableExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 406;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpNotAcceptableException();
+    protected function throwDefaultException() {
+        throw new HttpNotAcceptableException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpNotAcceptableException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpNotAcceptableException($message);
     }
 
 }

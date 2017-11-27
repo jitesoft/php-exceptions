@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpUnauthorizedException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpUnauthorizedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 401;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpUnauthorizedException();
+    protected function throwDefaultException() {
+        throw new HttpUnauthorizedException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpUnauthorizedException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpUnauthorizedException($message);
     }
 
 }

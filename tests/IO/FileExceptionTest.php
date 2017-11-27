@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\IO;
 
 use Jitesoft\Exceptions\IO\FileException;
-use Jitesoft\Exceptions\JitesoftException;
 
 /**
  *
@@ -21,17 +20,17 @@ class FileExceptionTest extends IOExceptionTest {
         return array_merge(parent::getTestProperties(), [ 'file_name' ]);
     }
 
-    protected function getDefaultException(): JitesoftException {
-        return new FileException();
+    protected function throwDefaultException() {
+        throw new FileException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new FileException("Test", "a.txt", "/a/b/c");
     }
 
     public function testGetFileName() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (FileException $ex) {
             $this->assertEquals("a.txt", $ex->getFileName());
             $this->assertEquals("a.txt", $ex->fileName);

@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpMethodNotAllowedException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpMethodNotAllowedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 405;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpMethodNotAllowedException();
+    protected function throwDefaultException() {
+        throw new HttpMethodNotAllowedException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpMethodNotAllowedException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpMethodNotAllowedException($message);
     }
 
 }

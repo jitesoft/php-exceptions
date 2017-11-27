@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Server;
 
 use Jitesoft\Exceptions\Http\Server\HttpInternalServerErrorException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpInternalServerErrorExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 500;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpInternalServerErrorException();
+    protected function throwDefaultException() {
+        throw new HttpInternalServerErrorException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpInternalServerErrorException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpInternalServerErrorException($message);
     }
 
 }

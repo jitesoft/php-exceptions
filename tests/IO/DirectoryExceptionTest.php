@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\IO;
 
 use Jitesoft\Exceptions\IO\DirectoryException;
-use Jitesoft\Exceptions\JitesoftException;
 
 /**
  * @group IOExceptions
@@ -16,11 +15,11 @@ use Jitesoft\Exceptions\JitesoftException;
  */
 class DirectoryExceptionTest extends IOExceptionTest {
 
-    protected function getDefaultException(): JitesoftException {
-        return new DirectoryException();
+    protected function throwDefaultException() {
+        throw new DirectoryException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new DirectoryException($message,"/a/b/c");
     }
 }

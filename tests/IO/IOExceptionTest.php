@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\IO;
 
 use Jitesoft\Exceptions\IO\IOException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 /**
@@ -18,7 +17,7 @@ class IOExceptionTest extends ExceptionTestCase {
 
     public function testGetPath() {
         try {
-            throw $this->getMessageException("Test");
+            $this->throwMessageException("Test");
         } catch (IOException $ex) {
             $this->assertEquals("/a/b/c", $ex->getPath());
             $this->assertEquals("/a/b/c", $ex->path);
@@ -29,11 +28,11 @@ class IOExceptionTest extends ExceptionTestCase {
         return array_merge(parent::getTestProperties(), [ 'path' ]);
     }
 
-    protected function getDefaultException(): JitesoftException {
-        return new IOException();
+    protected function throwDefaultException() {
+        throw new IOException();
     }
 
-    protected function getMessageException(string $message): JitesoftException {
-        return new IOException($message,"/a/b/c");
+    protected function throwMessageException(string $message) {
+        throw new IOException($message,"/a/b/c");
     }
 }

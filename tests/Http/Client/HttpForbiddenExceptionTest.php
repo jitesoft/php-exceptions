@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpForbiddenException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpForbiddenExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 403;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpForbiddenException();
+    protected function throwDefaultException() {
+        throw new HttpForbiddenException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpForbiddenException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpForbiddenException($message);
     }
 
 }

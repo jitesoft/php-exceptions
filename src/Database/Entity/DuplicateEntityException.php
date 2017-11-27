@@ -11,7 +11,7 @@ use Throwable;
 /**
  * Class DuplicateEntityException
  *
- * Exception thrown when a duplicated entity is being created.
+ * Exception thrown when a entity with unique constraint fails to be created due to already existing.
  */
 class DuplicateEntityException extends EntityException {
 

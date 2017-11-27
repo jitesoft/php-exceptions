@@ -1,14 +1,11 @@
 <?php
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   NotImplementedExceptionTest.php - Part of the php-exceptions project.
 
   © - Jitesoft 2017
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 namespace Jitesoft\Exceptions\Tests\Lazy;
 
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Lazy\NotImplementedException;
 use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
@@ -17,11 +14,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class NotImplementedExceptionTest extends ExceptionTestCase {
 
-    protected function getDefaultException(): JitesoftException {
-        return new NotImplementedException();
+    protected function throwDefaultException() {
+        throw new NotImplementedException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
+    public function throwMessageException(string $message) {
         throw new NotImplementedException($message);
     }
 }

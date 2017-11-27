@@ -7,7 +7,6 @@
 namespace Jitesoft\Exceptions\Tests\Http\Client;
 
 use Jitesoft\Exceptions\Http\Client\HttpNotFoundException;
-use Jitesoft\Exceptions\JitesoftException;
 use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
 
 /**
@@ -20,12 +19,12 @@ class HttpNotFoundExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 404;
 
-    protected function getDefaultException(): JitesoftException {
-        return new HttpNotFoundException();
+    protected function throwDefaultException() {
+        throw new HttpNotFoundException();
     }
 
-    public function getMessageException(string $message): JitesoftException {
-        return new HttpNotFoundException($message);
+    public function throwMessageException(string $message) {
+        throw new HttpNotFoundException($message);
     }
 
 }
