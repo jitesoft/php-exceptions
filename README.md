@@ -14,3 +14,8 @@ All the exception classes implements a toArray method and implements the JsonSer
 The structure of the classes is supposed to be as logic as possible. If anything seems off, please post a issue or make a pull-request.
 No Exceptions will be moved or renamed without a new major version release.  
 
+## Changes
+
+#### 2.0.0
+
+* All namespaces have had the `Exception` part of their name removed.
