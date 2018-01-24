@@ -12,6 +12,8 @@ use Throwable;
  * Class DuplicateEntityException
  *
  * Exception thrown when a entity with unique constraint fails to be created due to already existing.
+ * @deprecated Use the UniqueConstraintException instead.
+ * @see UniqueConstraintException
  */
 class DuplicateEntityException extends EntityException {
 
