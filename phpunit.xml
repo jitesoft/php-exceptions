@@ -39,6 +39,9 @@
         <testsuite name="XML">
             <directory suffix="Test.php">./tests/Xml</directory>
         </testsuite>
+        <testsuite name="PSR">
+            <directory suffix="Test.php">./tests/Psr</directory>
+        </testsuite>
         <testsuite name="JitesoftException">
             <directory suffix="JitesoftExceptionTest.php">./tests</directory>
         </testsuite>

@@ -28,6 +28,7 @@ abstract class ExceptionTestCase extends TestCase {
                     return $parm->getName() === "message";
                 }
             );
+            $message = array_values($message);
 
             /** @var $message ReflectionParameter[] */
             $this->assertNotEmpty($message);
