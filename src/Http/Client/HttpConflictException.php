@@ -21,14 +21,13 @@ class HttpConflictException extends HttpException {
     /**
      * HttpConflictException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "Request could not be processed due to an unexpected conflict.",
+    public function __construct(string $message = 'Request could not be processed due to an unexpected conflict.',
                                 int $code = 409,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

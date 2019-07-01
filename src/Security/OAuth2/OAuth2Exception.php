@@ -19,14 +19,14 @@ class OAuth2Exception extends SecurityException {
 
     /**
      * OAuth2Exception constructor.
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "Unexpected oauth2 error.",
+    public function __construct(string $message = 'Unexpected oauth2 error.',
                                  int $code = 0,
                                  Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
+
 }

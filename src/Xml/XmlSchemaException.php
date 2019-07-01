@@ -34,17 +34,17 @@ class XmlSchemaException extends XmlException {
     /**
      * XmlSchemaException constructor.
      *
-     * @param string $schema          Schema as string.
-     * @param string $xml             Xml as string.
-     * @param null|string $schemaName Optional schema file name.
-     * @param null|string $schemaPath Optional schema file path.
-     * @param null|string $fileName   Optional xml file name.
-     * @param null|string $path       Optional xml file path.
-     * @param string $message
-     * @param int $code
+     * @param string         $schema     Schema as string.
+     * @param string         $xml        Xml as string.
+     * @param null|string    $schemaName Optional schema file name.
+     * @param null|string    $schemaPath Optional schema file path.
+     * @param null|string    $fileName   Optional xml file name.
+     * @param null|string    $path       Optional xml file path.
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Unexpected XML Schema error.",
+    public function __construct(string $message = 'Unexpected XML Schema error.',
                                 ?string $schema = null,
                                 ?string $xml = null,
                                 ?string $schemaName = null,
@@ -53,7 +53,6 @@ class XmlSchemaException extends XmlException {
                                 ?string $path = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->schema     = $schema;
         $this->schemaName = $schemaName;
         $this->schemaPath = $schemaPath;

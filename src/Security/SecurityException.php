@@ -20,14 +20,13 @@ class SecurityException extends JitesoftException {
     /**
      * SecurityException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Unexpected security error.",
+    public function __construct(string $message = 'Unexpected security error.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

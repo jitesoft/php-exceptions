@@ -24,14 +24,14 @@ class EntityException extends DatabaseException {
 
     /**
      * EntityException constructor.
-     * @param string $message
-     * @param null|String $entityName
-     * @param mixed $entityId
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $entityName
+     * @param mixed          $entityId
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct($message = "Unexpected entity error.",
-        ?String $entityName = null,
+    public function __construct($message = 'Unexpected entity error.',
+        ?string $entityName = null,
         $entityId = null,
         $code = 0,
         ?Throwable $previous = null
@@ -50,7 +50,7 @@ class EntityException extends DatabaseException {
     }
 
     /**
-     * @return null|String
+     * @return null|string
      */
     public function getEntityName(): ?string {
         return $this->entityName;
@@ -82,4 +82,5 @@ class EntityException extends DatabaseException {
         $arr['entity_id']   = $this->entityId;
         return $arr;
     }
+
 }

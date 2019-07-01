@@ -17,13 +17,13 @@ class UniqueConstraintException extends EntityException {
 
     /**
      * UniqueConstraintException constructor.
-     * @param string $message
-     * @param null|string $entityName
-     * @param null $entityId
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $entityName
+     * @param null           $entityId
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct($message = "Entity already exist.",
+    public function __construct($message = 'Entity already exist.',
                                  ?string $entityName = null,
                                  $entityId = null,
                                  int $code = 0,

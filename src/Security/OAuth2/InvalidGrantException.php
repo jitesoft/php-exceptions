@@ -22,16 +22,15 @@ class InvalidGrantException extends OAuth2Exception {
 
     /**
      * InvalidGrantException constructor.
-     * @param string $message
-     * @param string|null $grant
-     * @param int $code
+     * @param string         $message
+     * @param string|null    $grant
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct($message = "Invalid grant." ,
+    public function __construct($message = 'Invalid grant.' ,
                                 ?string $grant = '',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
         $this->grant = $grant;
     }

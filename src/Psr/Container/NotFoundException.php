@@ -18,11 +18,11 @@ class NotFoundException extends ContainerException implements NotFoundExceptionI
 
     /**
      * NotFoundException constructor.
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Container failed to find requested value.",
+    public function __construct(string $message = 'Container failed to find requested value.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);

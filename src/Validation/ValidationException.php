@@ -20,14 +20,13 @@ class ValidationException extends JitesoftException {
     /**
      * ValidationException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Validation failed.",
+    public function __construct(string $message = 'Validation failed.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

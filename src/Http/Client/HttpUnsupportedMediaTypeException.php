@@ -19,14 +19,13 @@ class HttpUnsupportedMediaTypeException extends HttpException {
     /**
      * HttpUnsupportedMediaTypeException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Unsupported media type.",
+    public function __construct(string $message = 'Unsupported media type.',
                                 int $code = 415,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

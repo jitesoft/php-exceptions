@@ -26,22 +26,21 @@ class InvalidJsonValueException extends InvalidJsonException {
     /**
      * InvalidJsonValueException constructor.
      *
-     * @param string $message
-     * @param null|string $propertyName
-     * @param null|string $json
-     * @param null|string $path Optional file path.
-     * @param null|string $fileName Optional file name.
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $propertyName
+     * @param null|string    $json
+     * @param null|string    $path         Optional file path.
+     * @param null|string    $fileName     Optional file name.
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Invalid JSON value (Property: %s).",
+    public function __construct(string $message = 'Invalid JSON value (Property: %s).',
                                 ?string $propertyName = null,
                                 ?string $json = null,
                                 ?string $path = null,
                                 ?string $fileName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->propertyName = $propertyName;
 
         parent::__construct(sprintf($message, $propertyName), $json, $path, $fileName, $code, $previous);
@@ -78,4 +77,5 @@ class InvalidJsonValueException extends InvalidJsonException {
         $arr['property_name'] = $this->propertyName;
         return $arr;
     }
+
 }

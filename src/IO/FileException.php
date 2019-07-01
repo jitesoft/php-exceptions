@@ -21,18 +21,17 @@ class FileException extends IOException {
     /**
      * FileException constructor.
      *
-     * @param string $message
-     * @param null|string $fileName
-     * @param null|string $path
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $fileName
+     * @param null|string    $path
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "Unexpected file error.",
+    public function __construct(string $message = 'Unexpected file error.',
                                 ?string $fileName = null,
                                 ?string $path = null,
                                 int $code = 0,
                                 Throwable $previous = null) {
-
         $this->fileName = $fileName;
         parent::__construct($message, $path, $code, $previous);
     }

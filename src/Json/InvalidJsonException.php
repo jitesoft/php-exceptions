@@ -22,20 +22,19 @@ class InvalidJsonException extends JsonException {
     /**
      * InvalidJsonException constructor.
      *
-     * @param string $message
-     * @param null|string $json
-     * @param null|string $path     Optional file path.
-     * @param null|string $fileName Optional file name.
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $json
+     * @param null|string    $path     Optional file path.
+     * @param null|string    $fileName Optional file name.
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Invalid JSON.",
+    public function __construct(string $message = 'Invalid JSON.',
                                 ?string $json = null,
                                 ?string $path = null,
                                 ?string $fileName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $json, $path, $fileName, $code, $previous);
     }
 

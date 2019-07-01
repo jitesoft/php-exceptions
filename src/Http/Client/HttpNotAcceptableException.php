@@ -19,14 +19,13 @@ class HttpNotAcceptableException extends HttpException {
     /**
      * HttpNotAcceptableException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Content did not match accept header.",
+    public function __construct(string $message = 'Content did not match accept header.',
                                 int $code = 406,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

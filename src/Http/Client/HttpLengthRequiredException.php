@@ -19,14 +19,13 @@ class HttpLengthRequiredException extends HttpException {
     /**
      * HttpLengthRequiredException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct($message = "Content length required.",
+    public function __construct($message = 'Content length required.',
                                 int $code = 411,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

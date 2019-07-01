@@ -32,20 +32,19 @@ class XmlException extends JitesoftException {
     /**
      * XmlException constructor.
      *
-     * @param string $message
-     * @param string $xml
-     * @param string|null $fileName
-     * @param string|null $path
-     * @param int $code
+     * @param string         $message
+     * @param string         $xml
+     * @param string|null    $fileName
+     * @param string|null    $path
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct($message = "Unexpected XML error.",
+    public function __construct($message = 'Unexpected XML error.',
                                 ?string $xml = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
                                 $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->fileName = $fileName;
         $this->path     = $path;
         $this->xml      = $xml;
@@ -87,4 +86,5 @@ class XmlException extends JitesoftException {
         $arr['file_name'] = $this->fileName;
         return $arr;
     }
+
 }

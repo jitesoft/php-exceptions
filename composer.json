@@ -1,6 +1,6 @@
 {
     "name": "jitesoft/exceptions",
-    "description": "Common php exceptions used in Jitesoft projects.",
+    "description": "Collection of easy to use exception classes.",
     "type": "library",
     "keywords": [ "exceptions" ],
     "license": "MIT",

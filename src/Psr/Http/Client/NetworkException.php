@@ -10,11 +10,11 @@ use Psr\Http\Client\NetworkExceptionInterface;
 use Psr\Http\Message\RequestInterface;
 use Throwable;
 
-class NetworkException extends ClientException implements NetworkExceptionInterface  {
+class NetworkException extends ClientException implements NetworkExceptionInterface {
     private $request;
 
     public function __construct(RequestInterface $request,
-                                string $message = "Unexpected HttpNetwork exception.",
+                                string $message = 'Unexpected HttpNetwork exception.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);
@@ -32,4 +32,5 @@ class NetworkException extends ClientException implements NetworkExceptionInterf
     public function getRequest(): RequestInterface {
         return $this->request;
     }
+
 }

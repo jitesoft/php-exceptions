@@ -19,14 +19,13 @@ class HttpRequestTimeoutException extends HttpException {
     /**
      * HttpRequestTimeoutException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Timed out.",
+    public function __construct(string $message = 'Timed out.',
                                 int $code = 408,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

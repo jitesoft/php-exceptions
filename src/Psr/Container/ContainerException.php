@@ -17,7 +17,7 @@ use Throwable;
  */
 class ContainerException extends JitesoftException implements ContainerExceptionInterface {
 
-    public function __construct(string $message = "Unexpected container exception.",
+    public function __construct(string $message = 'Unexpected container exception.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);

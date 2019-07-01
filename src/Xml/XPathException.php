@@ -25,25 +25,24 @@ class XPathException extends XmlException {
     /**
      * XPathException constructor.
      *
-     * @param string $message
-     * @param null|string $xPath
-     * @param null|string $xml
-     * @param null|string $fileName Optional file name.
-     * @param null|string $path     Optional file path.
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $xPath
+     * @param null|string    $xml
+     * @param null|string    $fileName Optional file name.
+     * @param null|string    $path     Optional file path.
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Failed to evaluate XPath (%s).",
+    public function __construct(string $message = 'Failed to evaluate XPath (%s).',
                                 ?string $xPath = null,
                                 ?string $xml = null,
                                 ?string $fileName = null,
                                 ?string $path = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->xPath = $xPath;
 
-        parent::__construct( sprintf($message, $xPath), $xml, $fileName, $path, $code, $previous);
+        parent::__construct(sprintf($message, $xPath), $xml, $fileName, $path, $code, $previous);
     }
 
     /**

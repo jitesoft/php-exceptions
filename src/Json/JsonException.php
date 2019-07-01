@@ -32,20 +32,19 @@ class JsonException extends JitesoftException {
     /**
      * JsonException constructor.
      *
-     * @param string $message
-     * @param string|null $json
-     * @param string|null $path
-     * @param string|null $fileName
-     * @param int $code
+     * @param string         $message
+     * @param string|null    $json
+     * @param string|null    $path
+     * @param string|null    $fileName
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Unexpected json error.",
+    public function __construct(string $message = 'Unexpected json error.',
                                 ?string $json = null,
                                 ?string $path = null,
                                 ?string $fileName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->path     = $path;
         $this->fileName = $fileName;
         $this->json     = $json;

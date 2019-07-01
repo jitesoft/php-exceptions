@@ -34,14 +34,13 @@ abstract class JitesoftException extends Exception implements JsonSerializable {
     /**
      * JitesoftException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "",
+    public function __construct(string $message = '',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 
@@ -112,4 +111,5 @@ abstract class JitesoftException extends Exception implements JsonSerializable {
     public function jsonSerialize() {
         return $this->toArray();
     }
+
 }

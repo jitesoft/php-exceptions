@@ -26,22 +26,19 @@ class HttpUpgradeRequiredException extends HttpException {
 
     /**
      * HttpUpgradeRequiredException constructor.
-     * @param string $message
-     * @param string $protocol Protocol the user is expected to upgrade to.
-     * @param int $code
+     * @param string         $message
+     * @param string         $protocol Protocol the user is expected to upgrade to.
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Upgrade protocol.",
-                                string $protocol = "HTTP/2",
+    public function __construct(string $message = 'Upgrade protocol.',
+                                string $protocol = 'HTTP/2',
                                 int $code = 426,
                                 ?Throwable $previous = null) {
-
         $this->protocol = $protocol;
 
         parent::__construct($message, $code, $previous);
     }
-
-
 
     /**
      * Get the exception as an associative array.
@@ -66,6 +63,5 @@ class HttpUpgradeRequiredException extends HttpException {
         $array['protocol'] = $this->protocol;
         return $array;
     }
-
 
 }

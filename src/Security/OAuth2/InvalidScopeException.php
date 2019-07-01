@@ -21,12 +21,12 @@ class InvalidScopeException extends OAuth2Exception {
 
     /**
      * InvalidScopeException constructor.
-     * @param string $message
-     * @param null|string $scope
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $scope
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct($message = "Invalid scope.",
+    public function __construct($message = 'Invalid scope.',
                                  ?string $scope = null,
                                  int $code = 0,
                                  ?Throwable $previous = null) {
@@ -34,8 +34,6 @@ class InvalidScopeException extends OAuth2Exception {
 
         $this->scope = $scope;
     }
-
-
 
     /**
      * Get the exception as an associative array.
@@ -67,4 +65,5 @@ class InvalidScopeException extends OAuth2Exception {
     public function getScope(): ?string {
         return $this->scope;
     }
+
 }

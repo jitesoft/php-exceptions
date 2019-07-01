@@ -21,16 +21,15 @@ class IOException extends JitesoftException {
     use HasDirectoryTrait;
 
     /**
-     * @param string $message
-     * @param null|string $path
-     * @param int $code
+     * @param string         $message
+     * @param null|string    $path
+     * @param integer        $code
      * @param Throwable|null $previous
      */
-    public function __construct(string $message = "Unexpected IO error.",
+    public function __construct(string $message = 'Unexpected IO error.',
                                 ?string $path = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
 
         $this->path = $path;

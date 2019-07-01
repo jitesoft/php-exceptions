@@ -19,11 +19,11 @@ class HttpUnauthorizedException extends HttpException {
     /**
      * HttpUnauthorizedException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Unauthorized access.",
+    public function __construct(string $message = 'Unauthorized access.',
                                 int $code = 401,
                                 ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);

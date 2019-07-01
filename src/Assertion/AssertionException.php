@@ -24,12 +24,11 @@ class AssertionException extends JitesoftException {
     /** @var string */
     protected $expected;
 
-    public function __construct(string $message = "Assertion failed %s is not %s.",
-                                 string $actual = "",
-                                 string $expected = "",
+    public function __construct(string $message = 'Assertion failed %s is not %s.',
+                                 string $actual = '',
+                                 string $expected = '',
                                  int $code = 0,
                                  ?Throwable $previous = null) {
-
         $this->actual   = $actual;
         $this->expected = $expected;
 

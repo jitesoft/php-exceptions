@@ -16,14 +16,13 @@ class RequestException extends ClientException implements RequestExceptionInterf
     private $request;
 
     public function __construct(RequestInterface $request,
-                                string $message = "Unexpected HttpClientRequest exception.",
+                                string $message = 'Unexpected HttpClientRequest exception.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);
 
         $this->request = $request;
     }
-
 
     /**
      * Returns the request.
@@ -35,4 +34,5 @@ class RequestException extends ClientException implements RequestExceptionInterf
     public function getRequest(): RequestInterface {
         return $this->request;
     }
+
 }

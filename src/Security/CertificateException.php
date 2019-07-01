@@ -23,16 +23,15 @@ class CertificateException extends SecurityException {
 
     /**
      * CertificateException constructor.
-     * @param null|string $certificateName
-     * @param string $message
-     * @param int $code
+     * @param null|string    $certificateName
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
     public function __construct(string $message = "Encountered an issue with certificate named '%s'",
                                 ?string $certificateName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         $this->certificateName = $certificateName;
 
         parent::__construct(sprintf($message, $certificateName), $code, $previous);

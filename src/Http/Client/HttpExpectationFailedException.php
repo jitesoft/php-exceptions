@@ -19,14 +19,14 @@ class HttpExpectationFailedException extends HttpException {
     /**
      * HttpExpectationFailedException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Server could not meet the expect header requirements.",
+    public function __construct(string $message = 'Server could not meet the expect header requirements.',
                                 int $code = 417,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
+
 }

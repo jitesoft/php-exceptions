@@ -18,14 +18,13 @@ class HttpForbiddenException extends HttpException {
 
     /**
      * HttpForbiddenException constructor.
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Forbidden.",
+    public function __construct(string $message = 'Forbidden.',
                                 int $code = 403,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

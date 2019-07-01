@@ -17,10 +17,9 @@ use Throwable;
  */
 class ApplicationException extends JitesoftException {
 
-    public function __construct(string $message = "Unexpected application error.",
+    public function __construct(string $message = 'Unexpected application error.',
                                  int $code = 0,
                                  ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 

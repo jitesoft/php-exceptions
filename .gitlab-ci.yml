@@ -1,0 +1,13 @@
+include:
+  - template: Dependency-Scanning.gitlab-ci.yml
+  - template: SAST.gitlab-ci.yml
+
+stages:
+  - test
+
+test:
+  image: jitesoft/phpunit:latest
+  script:
+    - composer install --no-interaction --prefer-dist
+    - phpunit --configuration phpunit.xml --coverage-text --colors=never
+#- vendor/bin/phpcs -p --report=summary --standard=ruleset.xml src

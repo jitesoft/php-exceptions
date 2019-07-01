@@ -29,20 +29,18 @@ class InvalidArgumentException extends JitesoftException {
     /** @var string */
     protected $className;
 
-    public function __construct(string $message = "Invalid argument.",
-                                 string $argumentName = "",
-                                 string $methodName = "",
-                                 string $className = "",
+    public function __construct(string $message = 'Invalid argument.',
+                                 string $argumentName = '',
+                                 string $methodName = '',
+                                 string $className = '',
                                  int $code = 0,
                                  ?Throwable $previous = null) {
-
         $this->argumentName = $argumentName;
         $this->methodName   = $methodName;
         $this->className    = $className;
 
         parent::__construct($message, $code, $previous);
     }
-
 
     /**
      * Get the exception as an associative array.

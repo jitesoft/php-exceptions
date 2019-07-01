@@ -17,10 +17,10 @@ use Throwable;
  */
 class CacheException extends JitesoftException implements PsrCacheException {
 
-    public function __construct(string $message = "Unexpected cache exception.",
+    public function __construct(string $message = 'Unexpected cache exception.',
                                 int $code = 0,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
+
 }

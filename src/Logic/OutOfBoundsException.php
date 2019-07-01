@@ -19,25 +19,24 @@ use Throwable;
  */
 class OutOfBoundsException extends JitesoftException {
 
-    /** @var int|null */
+    /** @var integer|null */
     protected $index;
-    /** @var int|null */
+    /** @var integer|null */
     protected $size;
 
     /**
      * OutOfBoundsException constructor.
-     * @param string $message
-     * @param int|null $index
-     * @param int|null $size
-     * @param int $code
+     * @param string         $message
+     * @param integer|null   $index
+     * @param integer|null   $size
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Index is out of bounds.",
+    public function __construct(string $message = 'Index is out of bounds.',
                                  ?int $index = null,
                                  ?int $size = null,
                                  int $code = 0,
                                  ?Throwable $previous = null) {
-
         $this->index = $index;
         $this->size  = $size;
 
@@ -71,14 +70,14 @@ class OutOfBoundsException extends JitesoftException {
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getIndex() {
         return $this->index;
     }
 
     /**
-     * @return int|null
+     * @return integer|null
      */
     public function getSize() {
         return $this->size;

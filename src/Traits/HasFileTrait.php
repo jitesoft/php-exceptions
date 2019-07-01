@@ -22,4 +22,5 @@ trait HasFileTrait {
     public function getFileName() : ?string {
         return $this->fileName;
     }
+
 }

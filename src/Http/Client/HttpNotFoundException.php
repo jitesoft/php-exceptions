@@ -19,14 +19,13 @@ class HttpNotFoundException extends HttpException {
     /**
      * HttpNotFoundException constructor.
      *
-     * @param string $message
-     * @param int $code
+     * @param string         $message
+     * @param integer        $code
      * @param null|Throwable $previous
      */
-    public function __construct(string $message = "Resource not found.",
+    public function __construct(string $message = 'Resource not found.',
                                 int $code = 404,
                                 ?Throwable $previous = null) {
-
         parent::__construct($message, $code, $previous);
     }
 
