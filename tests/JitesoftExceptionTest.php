@@ -6,8 +6,11 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests;
 
+use ArrayAccess;
 use Exception;
 use Jitesoft\Exceptions\JitesoftException;
+use PHPUnit\Framework\Constraint\ArraySubset;
+use PHPUnit\Util\InvalidArgumentHelper;
 
 /**
  * @group Exceptions
@@ -20,6 +23,35 @@ class JitesoftExceptionTest extends ExceptionTestCase {
         } catch (JitesoftException $ex) {
             $this->assertNull($ex->abcdefghijklmnopqrstuvwxyzåäö);
         }
+    }
+
+    /**
+     * Temporary copy of assertArraySubset to remove deprecation warning until a new method working alike exists.
+     *
+     * @param array|ArrayAccess $subset
+     * @param array|ArrayAccess $array
+     * @param bool              $checkForObjectIdentity
+     * @param string            $message
+     */
+    public static function tempAssertArraySubset($subset, $array, bool $checkForObjectIdentity = false, string $message = ''): void
+    {
+        if (!(\is_array($subset) || $subset instanceof ArrayAccess)) {
+            throw InvalidArgumentHelper::factory(
+                1,
+                'array or ArrayAccess'
+            );
+        }
+
+        if (!(\is_array($array) || $array instanceof ArrayAccess)) {
+            throw InvalidArgumentHelper::factory(
+                2,
+                'array or ArrayAccess'
+            );
+        }
+
+        $constraint = new ArraySubset($subset, $checkForObjectIdentity);
+
+        static::assertThat($array, $constraint, $message);
     }
 
     public function testInnerExceptionWhichIsInherited() {
@@ -35,7 +67,8 @@ class JitesoftExceptionTest extends ExceptionTestCase {
             $this->assertEquals("test inner", $ex->getPrevious()->getMessage());
             $this->assertEquals(2, $ex->getPrevious()->getCode());
 
-            $this->assertArraySubset([
+            /** @noinspection PhpDeprecationInspection */
+            $this->tempAssertArraySubset([
                 "type"  => TestException::class,
                 "error" => "test outer",
                 "code"  => 1,
@@ -55,7 +88,6 @@ class JitesoftExceptionTest extends ExceptionTestCase {
                         0 => [
                             "function" => "testInnerExceptionWhichIsInherited",
                             'class' => JitesoftExceptionTest::class
-
                         ]
                     ]
                 ]
@@ -78,7 +110,7 @@ class JitesoftExceptionTest extends ExceptionTestCase {
             $this->assertEquals("test inner", $ex->getPrevious()->getMessage());
             $this->assertEquals(2, $ex->getPrevious()->getCode());
 
-            $this->assertArraySubset([
+            $this->tempAssertArraySubset([
                 "type"  => TestException::class,
                 "error" => "test outer",
                 "code"  => 1,

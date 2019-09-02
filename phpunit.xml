@@ -9,41 +9,8 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-         <testsuite name="Assertions">
-            <directory suffix="Test.php">./tests/Assertions</directory>
-        </testsuite>
-        <testsuite name="Database">
-            <directory suffix="Test.php">./tests/Database</directory>
-        </testsuite>
-        <testsuite name="Http">
-            <directory suffix="Test.php">./tests/Http</directory>
-        </testsuite>
-        <testsuite name="IO">
-            <directory suffix="Test.php">./tests/IO</directory>
-        </testsuite>
-        <testsuite name="Json">
-            <directory suffix="Test.php">./tests/Json</directory>
-        </testsuite>
-        <testsuite name="Lazy">
-            <directory suffix="Test.php">./tests/Lazy</directory>
-        </testsuite>
-        <testsuite name="Logic">
-            <directory suffix="Test.php">./tests/Logic</directory>
-        </testsuite>
-        <testsuite name="Security">
-            <directory suffix="Test.php">./tests/Security</directory>
-        </testsuite>
-        <testsuite name="Validation">
-            <directory suffix="Test.php">./tests/Validation</directory>
-        </testsuite>
-        <testsuite name="XML">
-            <directory suffix="Test.php">./tests/Xml</directory>
-        </testsuite>
-        <testsuite name="PSR">
-            <directory suffix="Test.php">./tests/Psr</directory>
-        </testsuite>
-        <testsuite name="JitesoftException">
-            <directory suffix="JitesoftExceptionTest.php">./tests</directory>
+        <testsuite name="Testsuite">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
     <filter>
@@ -51,7 +18,4 @@
             <directory>./src/</directory>
         </whitelist>
     </filter>
-    <logging>
-        <log type="coverage-clover" target="clover.xml"/>
-    </logging>
 </phpunit>

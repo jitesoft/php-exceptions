@@ -53,7 +53,7 @@
     </rule>
     <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
-            <property name="complexity" value="9"/>
+            <property name="complexity" value="8"/>
             <property name="absoluteComplexity" value="10"/>
         </properties>
     </rule>
@@ -114,6 +114,7 @@
 
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
     <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.InlineComment"/>
     <rule ref="Squiz.Commenting.VariableComment"/>
     <rule ref="Squiz.Operators.ValidLogicalOperators"/>
