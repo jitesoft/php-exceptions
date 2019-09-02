@@ -1,12 +1,9 @@
+[![pipeline status](https://gitlab.com/jitesoft/open-source/php/exceptions/badges/master/pipeline.svg)](https://gitlab.com/jitesoft/open-source/php/exceptions/commits/master)
+[![coverage report](https://gitlab.com/jitesoft/open-source/php/exceptions/badges/master/coverage.svg)](https://gitlab.com/jitesoft/open-source/php/exceptions/commits/master)
+[![Back project](https://img.shields.io/badge/Open%20Collective-Tip%20the%20devs!-blue.svg)](https://opencollective.com/jitesoft-open-source)
+[![PHP-Version](https://img.shields.io/packagist/php-v/jitesoft/exceptions.svg)](https://packagist.org/packages/jitesoft/exceptions)
+
 # Exceptions
-
-[![Build Status](https://img.shields.io/travis/jitesoft/php-exceptions/master.svg?label=master)](https://travis-ci.org/jitesoft/php-exceptions)  
-
-[![Build Status](https://img.shields.io/travis/jitesoft/php-exceptions/develop.svg?label=develop)](https://travis-ci.org/jitesoft/php-exceptions)
-
-[![Dependency Status](https://gemnasium.com/badges/github.com/jitesoft/php-exceptions.svg)](https://gemnasium.com/github.com/jitesoft/php-exceptions)
-
-[![codecov](https://codecov.io/gh/jitesoft/php-exceptions/branch/master/graph/badge.svg)](https://codecov.io/gh/jitesoft/php-exceptions)
 
 Exception classes commonly used in Jitesoft php projects.  
 
