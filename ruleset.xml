@@ -15,7 +15,7 @@
     <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
     <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
     <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
-    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+    <!--rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/-->
     <rule ref="Generic.Commenting.Todo"/>
     <rule ref="Generic.Commenting.Fixme"/>
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
@@ -27,7 +27,7 @@
     </rule>
     <rule ref="Generic.Files.LineLength">
         <properties>
-            <property name="lineLimit" value="80"/>
+            <property name="lineLimit" value="120"/>
             <property name="absoluteLineLimit" value="120"/>
             <property name="ignoreComments" value="true"/>
         </properties>
@@ -113,7 +113,6 @@
     <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
 
     <rule ref="Squiz.Commenting.DocCommentAlignment"/>
-    <rule ref="Squiz.Commenting.FunctionComment"/>
     <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
     <rule ref="Squiz.Commenting.InlineComment"/>
     <rule ref="Squiz.Commenting.VariableComment"/>

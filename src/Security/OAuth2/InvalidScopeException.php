@@ -16,7 +16,7 @@ use Throwable;
  * @property string $scope
  */
 class InvalidScopeException extends OAuth2Exception {
-
+    /** @var string|null */
     protected $scope;
 
     /**

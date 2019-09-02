@@ -12,7 +12,9 @@ use Throwable;
 
 class ClientException extends JitesoftException implements ClientExceptionInterface {
 
-    public function __construct(string $message = 'Unexpected HttpClient exception.', int $code = 0, ?Throwable $previous = null) {
+    public function __construct(string $message = 'Unexpected HttpClient exception.',
+                                int $code = 0,
+                                ?Throwable $previous = null) {
         parent::__construct($message, $code, $previous);
     }
 

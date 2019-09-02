@@ -24,6 +24,15 @@ class AssertionException extends JitesoftException {
     /** @var string */
     protected $expected;
 
+    /**
+     * AssertionException constructor.
+     *
+     * @param string         $message
+     * @param string         $actual
+     * @param string         $expected
+     * @param int            $code
+     * @param Throwable|null $previous
+     */
     public function __construct(string $message = 'Assertion failed %s is not %s.',
                                  string $actual = '',
                                  string $expected = '',
