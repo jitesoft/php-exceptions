@@ -1,16 +1,14 @@
 include:
   - https://gitlab.com/jitesoft/gitlab-ci-lib/raw/master/dependency_scanning.yml
 
-
 stages:
   - test
 
 test:
-  image: jitesoft/phpunit:latest
+  image: registry.gitlab.com/jitesoft/dockerfiles/phpunit:7.2
   script:
     - composer install --no-interaction --prefer-dist
-    - phpunit --configuration phpunit.xml --coverage-text --colors=never
-#- vendor/bin/phpcs -p --report=summary --standard=ruleset.xml src
+    - composer test
 
 scan:
   extends: .dependency_scan:composer
