@@ -5,7 +5,7 @@ stages:
   - test
 
 test:
-  image: registry.gitlab.com/jitesoft/dockerfiles/phpunit:7.2
+  image: registry.gitlab.com/jitesoft/dockerfiles/phpunit:7.4
   script:
     - composer install --no-interaction --prefer-dist
     - composer test
