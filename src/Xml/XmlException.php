@@ -26,8 +26,7 @@ class XmlException extends JitesoftException {
     use HasDirectoryTrait;
     use HasFileTrait;
 
-    /** @var string|null */
-    protected $xml;
+    protected ?string $xml;
 
     /**
      * XmlException constructor.
@@ -79,7 +78,7 @@ class XmlException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr              = parent::toArray();
         $arr['xml']       = $this->xml;
         $arr['file_path'] = $this->path;

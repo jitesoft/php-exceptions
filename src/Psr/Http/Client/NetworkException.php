@@ -11,8 +11,7 @@ use Psr\Http\Message\RequestInterface;
 use Throwable;
 
 class NetworkException extends ClientException implements NetworkExceptionInterface {
-    /** @var RequestInterface */
-    private $request;
+    protected RequestInterface $request;
 
     public function __construct(RequestInterface $request,
                                 string $message = 'Unexpected HttpNetwork exception.',

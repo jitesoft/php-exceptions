@@ -18,11 +18,7 @@ use Throwable;
  * @property string $protocol
  */
 class HttpUpgradeRequiredException extends HttpException {
-
-    /**
-     * @var string
-     */
-    protected $protocol;
+    protected string $protocol;
 
     /**
      * HttpUpgradeRequiredException constructor.
@@ -58,7 +54,7 @@ class HttpUpgradeRequiredException extends HttpException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $array             = parent::toArray();
         $array['protocol'] = $this->protocol;
         return $array;

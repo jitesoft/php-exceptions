@@ -19,9 +19,7 @@ use Throwable;
  * @property string $propertyName
  */
 class InvalidJsonValueException extends InvalidJsonException {
-
-    /** @var null|string */
-    protected $propertyName;
+    protected ?string $propertyName;
 
     /**
      * InvalidJsonValueException constructor.

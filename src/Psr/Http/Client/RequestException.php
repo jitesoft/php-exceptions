@@ -13,8 +13,7 @@ use Psr\Http\Message\RequestInterface;
 use Throwable;
 
 class RequestException extends ClientException implements RequestExceptionInterface {
-    /** @var RequestInterface */
-    private $request;
+    protected RequestInterface $request;
 
     public function __construct(RequestInterface $request,
                                 string $message = 'Unexpected HttpClientRequest exception.',

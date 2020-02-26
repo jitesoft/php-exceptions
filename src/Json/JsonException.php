@@ -26,8 +26,7 @@ class JsonException extends JitesoftException {
     use HasDirectoryTrait;
     use HasFileTrait;
 
-    /** @var null|string */
-    protected $json;
+    protected ?string $json;
 
     /**
      * JsonException constructor.
@@ -77,7 +76,7 @@ class JsonException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr              = parent::toArray();
         $arr['json']      = $this->json;
         $arr['file_name'] = $this->fileName;

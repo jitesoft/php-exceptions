@@ -10,9 +10,7 @@ namespace Jitesoft\Exceptions\Traits;
  * @property string $path
  */
 trait HasDirectoryTrait {
-
-    /** @var null|string */
-    protected $path = null;
+    protected ?string $path = null;
 
     /**
      * Get the path of the directory.

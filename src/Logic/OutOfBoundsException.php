@@ -18,11 +18,8 @@ use Throwable;
  * @property int $size
  */
 class OutOfBoundsException extends JitesoftException {
-
-    /** @var integer|null */
-    protected $index;
-    /** @var integer|null */
-    protected $size;
+    protected ?int $index;
+    protected ?int $size;
 
     /**
      * OutOfBoundsException constructor.
@@ -62,7 +59,7 @@ class OutOfBoundsException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr          = parent::toArray();
         $arr['index'] = $this->index;
         $arr['size']  = $this->size;
@@ -72,14 +69,14 @@ class OutOfBoundsException extends JitesoftException {
     /**
      * @return integer|null
      */
-    public function getIndex() {
+    public function getIndex(): ?int {
         return $this->index;
     }
 
     /**
      * @return integer|null
      */
-    public function getSize() {
+    public function getSize(): ?int {
         return $this->size;
     }
 

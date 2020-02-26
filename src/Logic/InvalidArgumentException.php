@@ -21,13 +21,9 @@ use Throwable;
  * @property string $className
  */
 class InvalidArgumentException extends JitesoftException {
-
-    /** @var string */
-    protected $argumentName;
-    /** @var string */
-    protected $methodName;
-    /** @var string */
-    protected $className;
+    protected string $argumentName;
+    protected string $methodName;
+    protected string $className;
 
     public function __construct(string $message = 'Invalid argument.',
                                  string $argumentName = '',
@@ -62,7 +58,7 @@ class InvalidArgumentException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr                 = parent::toArray();
         $arr['argumentName'] = $this->argumentName;
         $arr['methodName']   = $this->methodName;

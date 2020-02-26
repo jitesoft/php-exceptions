@@ -15,12 +15,10 @@ use Throwable;
  * Xml exceptions may or may not have a path and filename pointing to the file which is
  * invalid.
  *
- * @property string $xPath
+ * @property null|string $xPath
  */
 class XPathException extends XmlException {
-
-    /** @var null|string */
-    protected $xPath;
+    protected ?string $xPath;
 
     /**
      * XPathException constructor.
@@ -74,7 +72,7 @@ class XPathException extends XmlException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr          = parent::toArray();
         $arr['xpath'] = $this->xPath;
         return $arr;

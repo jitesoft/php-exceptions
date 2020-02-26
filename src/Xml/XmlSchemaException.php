@@ -16,20 +16,14 @@ use Throwable;
  * Xml exceptions may or may not have a path and filename pointing to the file which is
  * invalid.
  *
- * @property string $schema
- * @property string $schemaName
- * @property string $schemaPath
+ * @property null|string $schema
+ * @property null|string $schemaName
+ * @property null|string $schemaPath
  */
 class XmlSchemaException extends XmlException {
-
-    /** @var string */
-    protected $schema;
-
-    /** @var string|null */
-    protected $schemaName;
-
-    /** @var string|null */
-    protected $schemaPath;
+    protected ?string $schema;
+    protected ?string $schemaName;
+    protected ?string $schemaPath;
 
     /**
      * XmlSchemaException constructor.
@@ -104,7 +98,7 @@ class XmlSchemaException extends XmlException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr                = parent::toArray();
         $arr['schema']      = $this->schema;
         $arr['schema_path'] = $this->schemaPath;

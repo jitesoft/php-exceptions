@@ -19,8 +19,7 @@ class EntityException extends DatabaseException {
 
     /** @var mixed */
     protected $entityId;
-    /** @var ?String */
-    protected $entityName;
+    protected ?string $entityName;
 
     /**
      * EntityException constructor.

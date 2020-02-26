@@ -18,11 +18,8 @@ use Throwable;
  * @property string $expected
  */
 class AssertionException extends JitesoftException {
-
-    /** @var string */
-    protected $actual;
-    /** @var string */
-    protected $expected;
+    protected string $actual;
+    protected string $expected;
 
     /**
      * AssertionException constructor.
@@ -63,7 +60,7 @@ class AssertionException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr             = parent::toArray();
         $arr['actual']   = $this->actual;
         $arr['expected'] = $this->expected;

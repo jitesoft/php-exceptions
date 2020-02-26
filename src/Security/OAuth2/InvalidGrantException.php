@@ -16,9 +16,7 @@ use Throwable;
  * @property string|null $grant
  */
 class InvalidGrantException extends OAuth2Exception {
-
-    /** @var null|string */
-    protected $grant;
+    protected ?string $grant;
 
     /**
      * InvalidGrantException constructor.
@@ -53,7 +51,7 @@ class InvalidGrantException extends OAuth2Exception {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr          = parent::toArray();
         $arr['grant'] = $this->grant;
         return $arr;

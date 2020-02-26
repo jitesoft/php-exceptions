@@ -17,9 +17,7 @@ use Throwable;
  * @property string|null $certificateName
  */
 class CertificateException extends SecurityException {
-
-    /** @var null|string */
-    protected $certificateName;
+    protected ?string $certificateName;
 
     /**
      * CertificateException constructor.
@@ -62,7 +60,7 @@ class CertificateException extends SecurityException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr                     = parent::toArray();
         $arr['certificate_name'] = $this->certificateName;
         return $arr;

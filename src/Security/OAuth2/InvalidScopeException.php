@@ -13,11 +13,10 @@ use Throwable;
  *
  * Exception thrown when oauth2 fails due to a invalid scope.
  *
- * @property string $scope
+ * @property null|string $scope
  */
 class InvalidScopeException extends OAuth2Exception {
-    /** @var string|null */
-    protected $scope;
+    protected ?string $scope;
 
     /**
      * InvalidScopeException constructor.
@@ -53,7 +52,7 @@ class InvalidScopeException extends OAuth2Exception {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr          = parent::toArray();
         $arr['scope'] = $this->scope;
         return $arr;

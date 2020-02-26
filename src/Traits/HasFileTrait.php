@@ -10,9 +10,7 @@ namespace Jitesoft\Exceptions\Traits;
  * @property string fileName
  */
 trait HasFileTrait {
-
-    /** @var null|string */
-    protected $fileName;
+    protected ?string $fileName;
 
     /**
      * Get the file name of the file with issues.

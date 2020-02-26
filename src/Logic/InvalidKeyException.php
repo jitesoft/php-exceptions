@@ -12,11 +12,10 @@ use Throwable;
  * @package Jitesoft\Exceptions\Logic
  */
 class InvalidKeyException extends JitesoftException {
-    /** @var string */
-    protected $keyName;
+    protected ?string $keyName;
 
     public function __construct(string $message = 'Invalid key.',
-                                $keyName = null,
+                                ?string $keyName = null,
                                 int $code = 0,
                                 ?Throwable $previous = null) {
         $this->keyName = $keyName;
@@ -41,16 +40,16 @@ class InvalidKeyException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $arr            = parent::toArray();
         $arr['keyName'] = $this->keyName;
         return $arr;
     }
 
     /**
-     * @return mixed
+     * @return null|string
      */
-    public function getKeyName() {
+    public function getKeyName(): ?string {
         return $this->keyName;
     }
 

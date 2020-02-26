@@ -61,7 +61,7 @@ abstract class JitesoftException extends Exception implements JsonSerializable {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $exception = [
             'type'  => static::class,
             'error' => $this->getMessage(),
@@ -108,7 +108,7 @@ abstract class JitesoftException extends Exception implements JsonSerializable {
      * which is a value of any type other than a resource.
      * @since 5.4.0
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): array {
         return $this->toArray();
     }
 

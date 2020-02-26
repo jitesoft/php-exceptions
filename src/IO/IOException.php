@@ -53,7 +53,7 @@ class IOException extends JitesoftException {
      *
      * @return array
      */
-    public function toArray() {
+    public function toArray(): array {
         $parent         = parent::toArray();
         $parent['path'] = $this->path;
         return $parent;
