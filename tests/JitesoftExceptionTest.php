@@ -9,7 +9,6 @@ namespace Jitesoft\Exceptions\Tests;
 use ArrayAccess;
 use Exception;
 use Jitesoft\Exceptions\JitesoftException;
-use PHPUnit\Framework\Constraint\ArraySubset;
 use PHPUnit\Util\InvalidArgumentHelper;
 
 /**
@@ -35,6 +34,8 @@ class JitesoftExceptionTest extends ExceptionTestCase {
      */
     public static function tempAssertArraySubset($subset, $array, bool $checkForObjectIdentity = false, string $message = ''): void
     {
+
+
         if (!(\is_array($subset) || $subset instanceof ArrayAccess)) {
             throw InvalidArgumentHelper::factory(
                 1,
@@ -49,7 +50,7 @@ class JitesoftExceptionTest extends ExceptionTestCase {
             );
         }
 
-        $constraint = new ArraySubset($subset, $checkForObjectIdentity);
+        $constraint = new ArraySubsetConstraint($subset, $checkForObjectIdentity);
 
         static::assertThat($array, $constraint, $message);
     }
