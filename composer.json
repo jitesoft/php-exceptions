@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">7.4.2",
+        "php": ">=7.4.2",
         "psr/container": "^1.0",
         "psr/cache": "^1.0.1",
         "psr/http-client": "^1.0"
