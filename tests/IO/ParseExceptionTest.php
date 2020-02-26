@@ -2,7 +2,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   ParseExceptionTest.php - Part of the php-exceptions project.
 
-  © - Jitesoft 2017
+  © - Jitesoft
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\IO;
 
@@ -22,5 +22,5 @@ class ParseExceptionTest extends FileExceptionTest {
     public function throwMessageException(string $message) {
         throw new ParseException($message,"a.txt", "/a/b/c");
     }
-    
+
 }
