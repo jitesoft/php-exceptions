@@ -35,6 +35,9 @@
         }
     },
     "scripts": {
+        "lint": [
+            "phpcs --standard=./ruleset.xml -p ./src"
+        ],
         "test": [
             "phpunit --configuration ./phpunit.xml --coverage-text --colors=never",
             "phpcs --report=summary --standard=./ruleset.xml -p ./src"
