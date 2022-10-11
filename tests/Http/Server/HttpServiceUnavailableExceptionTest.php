@@ -11,6 +11,9 @@ use Jitesoft\Exceptions\Tests\Http\HttpExceptionTest;
  * @group HttpServerExceptions
  */
 class HttpServiceUnavailableExceptionTest extends HttpExceptionTest {
+    protected static function getTestProperties(): array {
+        return [...parent::getTestProperties(), 'retry-after'];
+    }
 
     protected $expectedErrorCode = 503;
 
@@ -19,7 +22,16 @@ class HttpServiceUnavailableExceptionTest extends HttpExceptionTest {
     }
 
     public function throwMessageException(string $message): void {
-        throw new HttpServiceUnavailableException($message);
+        throw new HttpServiceUnavailableException($message, 100);
+    }
+
+    public function testRetryAfter(): void {
+        try {
+            $this->throwMessageException('Test');
+        } catch (HttpServiceUnavailableException $ex) {
+            self::assertEquals(100, $ex->getRetryAfter());
+            self::assertEquals(100, $ex->retryAfter);
+        }
     }
 
 }

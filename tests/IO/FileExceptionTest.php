@@ -37,5 +37,4 @@ class FileExceptionTest extends IOExceptionTest {
         }
     }
 
-
 }

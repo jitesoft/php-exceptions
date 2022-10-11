@@ -30,9 +30,9 @@ abstract class ExceptionTestCase extends TestCase {
             );
             $message = array_values($message);
 
-            /** @var $message ReflectionParameter[] */
             self::assertNotEmpty($message);
 
+            /** @noinspection PhpUnhandledExceptionInspection */
             $message = $message[0]->getDefaultValue();
             $count   = substr_count($message, '%s');
             $args    = array_fill(0, $count, '');
@@ -78,7 +78,7 @@ abstract class ExceptionTestCase extends TestCase {
         try {
             $this->throwDefaultException();
         } catch (JitesoftException $ex) {
-            self::assertHasProperties($ex->toArray(), static::getTestProperties());
+            $this->assertHasProperties($ex->toArray(), static::getTestProperties());
         }
     }
 
