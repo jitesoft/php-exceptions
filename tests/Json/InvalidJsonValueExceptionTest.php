@@ -30,8 +30,8 @@ class InvalidJsonValueExceptionTest extends JsonExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (InvalidJsonValueException $ex) {
-            $this->assertEquals("test", $ex->getPropertyName());
-            $this->assertEquals("test", $ex->propertyName);
+            self::assertEquals("test", $ex->getPropertyName());
+            self::assertEquals("test", $ex->propertyName);
         }
     }
 

@@ -31,8 +31,8 @@ class XmlExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch (XmlException $ex) {
-            $this->assertEquals("invalid", $ex->xml);
-            $this->assertEquals("invalid", $ex->getXml());
+            self::assertEquals("invalid", $ex->xml);
+            self::assertEquals("invalid", $ex->getXml());
         }
     }
 
@@ -40,8 +40,8 @@ class XmlExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch (XmlException $ex) {
-            $this->assertEquals("/a/b/c", $ex->path);
-            $this->assertEquals("/a/b/c", $ex->getPath());
+            self::assertEquals("/a/b/c", $ex->path);
+            self::assertEquals("/a/b/c", $ex->getPath());
         }
     }
 
@@ -49,8 +49,8 @@ class XmlExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch (XmlException $ex) {
-            $this->assertEquals("a.xml", $ex->fileName);
-            $this->assertEquals("a.xml", $ex->getFileName());
+            self::assertEquals("a.xml", $ex->fileName);
+            self::assertEquals("a.xml", $ex->getFileName());
         }
     }
 

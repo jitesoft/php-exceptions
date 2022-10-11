@@ -37,8 +37,8 @@ class OutOfBoundsExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException('abc');
         } catch (OutOfBoundsException $ex) {
-            $this->assertEquals(10, $ex->index);
-            $this->assertEquals(10, $ex->getIndex());
+            self::assertEquals(10, $ex->index);
+            self::assertEquals(10, $ex->getIndex());
         }
     }
 
@@ -46,8 +46,8 @@ class OutOfBoundsExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException('abc');
         } catch (OutOfBoundsException $ex) {
-            $this->assertEquals(9, $ex->size);
-            $this->assertEquals(9, $ex->getSize());
+            self::assertEquals(9, $ex->size);
+            self::assertEquals(9, $ex->getSize());
         }
     }
 

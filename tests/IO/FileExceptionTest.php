@@ -32,8 +32,8 @@ class FileExceptionTest extends IOExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (FileException $ex) {
-            $this->assertEquals("a.txt", $ex->getFileName());
-            $this->assertEquals("a.txt", $ex->fileName);
+            self::assertEquals("a.txt", $ex->getFileName());
+            self::assertEquals("a.txt", $ex->fileName);
         }
     }
 

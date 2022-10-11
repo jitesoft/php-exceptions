@@ -134,7 +134,7 @@ class JitesoftExceptionTest extends ExceptionTestCase {
             ], $ex->toArray());
 
             /** @noinspection PhpUnhandledExceptionInspection */
-            $this->assertEquals(json_encode($ex, JSON_THROW_ON_ERROR), json_encode($ex->toArray(), JSON_THROW_ON_ERROR));
+            self::assertEquals(json_encode($ex, JSON_THROW_ON_ERROR), json_encode($ex->toArray(), JSON_THROW_ON_ERROR));
         }
     }
 

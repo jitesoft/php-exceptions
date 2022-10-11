@@ -1,11 +1,9 @@
 <?php
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   InvalidScopeExceptionTest.php - Part of the php-exceptions project.
 
   © - Jitesoft 2018
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 namespace Jitesoft\Exceptions\Tests\Security\OAuth2;
 
 use Jitesoft\Exceptions\Security\OAuth2\InvalidScopeException;
@@ -28,8 +26,8 @@ class InvalidScopeExceptionTest extends OAuth2ExceptionTest {
         try {
             $this->throwMessageException('Test');
         } catch (InvalidScopeException $ex) {
-            $this->assertEquals('scope_name', $ex->getScope());
-            $this->assertEquals('scope_name', $ex->scope);
+            self::assertEquals('scope_name', $ex->getScope());
+            self::assertEquals('scope_name', $ex->scope);
         }
     }
 

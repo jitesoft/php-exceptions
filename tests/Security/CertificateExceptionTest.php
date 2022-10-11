@@ -29,8 +29,8 @@ class CertificateExceptionTest extends SecurityExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (CertificateException $ex) {
-            $this->assertEquals("test.cert", $ex->getCertificateName());
-            $this->assertEquals("test.cert", $ex->certificateName);
+            self::assertEquals("test.cert", $ex->getCertificateName());
+            self::assertEquals("test.cert", $ex->certificateName);
         }
     }
 

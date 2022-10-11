@@ -31,8 +31,8 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {
-            $this->assertEquals('$message', $ex->getArgumentName());
-            $this->assertEquals('$message', $ex->argumentName);
+            self::assertEquals('$message', $ex->getArgumentName());
+            self::assertEquals('$message', $ex->argumentName);
         }
     }
 
@@ -40,8 +40,8 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {
-            $this->assertEquals('throwMessageException', $ex->getMethodName());
-            $this->assertEquals('throwMessageException', $ex->methodName);
+            self::assertEquals('throwMessageException', $ex->getMethodName());
+            self::assertEquals('throwMessageException', $ex->methodName);
         }
     }
 
@@ -49,8 +49,8 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {
-            $this->assertEquals('InvalidArgumentExceptionTest', $ex->getClassName());
-            $this->assertEquals('InvalidArgumentExceptionTest', $ex->className);
+            self::assertEquals('InvalidArgumentExceptionTest', $ex->getClassName());
+            self::assertEquals('InvalidArgumentExceptionTest', $ex->className);
         }
     }
 

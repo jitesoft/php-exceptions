@@ -31,8 +31,8 @@ class JsonExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch(JsonException $ex) {
-            $this->assertEquals("invalid", $ex->getJson());
-            $this->assertEquals("invalid", $ex->json);
+            self::assertEquals("invalid", $ex->getJson());
+            self::assertEquals("invalid", $ex->json);
         }
     }
 
@@ -40,8 +40,8 @@ class JsonExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch (JsonException $ex) {
-            $this->assertEquals("a.json", $ex->getFileName());
-            $this->assertEquals("a.json", $ex->fileName);
+            self::assertEquals("a.json", $ex->getFileName());
+            self::assertEquals("a.json", $ex->fileName);
         }
     }
 
@@ -49,8 +49,8 @@ class JsonExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException("Test");
         } catch (JsonException $ex) {
-            $this->assertEquals("/a/b/c", $ex->getPath());
-            $this->assertEquals("/a/b/c", $ex->path);
+            self::assertEquals("/a/b/c", $ex->getPath());
+            self::assertEquals("/a/b/c", $ex->path);
         }
     }
 }

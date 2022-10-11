@@ -28,8 +28,8 @@ class InvalidGrantExceptionTest extends OAuth2ExceptionTest {
         try {
             $this->throwMessageException('Test');
         } catch (InvalidGrantException $ex) {
-            $this->assertEquals('grant_name', $ex->getGrant());
-            $this->assertEquals('grant_name', $ex->grant);
+            self::assertEquals('grant_name', $ex->getGrant());
+            self::assertEquals('grant_name', $ex->grant);
         }
     }
 
