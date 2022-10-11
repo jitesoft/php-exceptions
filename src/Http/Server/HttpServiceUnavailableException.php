@@ -18,7 +18,6 @@ use Throwable;
  * to retry the request after the given time.
  */
 class HttpServiceUnavailableException extends HttpException {
-
     protected ?int $retryAfter;
 
     /**
@@ -39,12 +38,15 @@ class HttpServiceUnavailableException extends HttpException {
      * @param Throwable|null $previous
      */
     public function __construct(
-        string $message =
-            "Service is currently not able to handle the request.",
+        string $message
+            = 'Service is currently not able to handle the request.',
         int $code = 503,
         ?int $retryAfter = null,
         ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
+
+        $this->retryAfter = $retryAfter;
     }
+
 }
