@@ -16,8 +16,7 @@ use Throwable;
  * due to legal reasons hence can't be served.
  */
 class HttpUnavailableForLegalReasonsException extends HttpException {
-
-    private ?string $reason;
+    protected ?string $reason;
 
     /**
      * Reason for unavailability.
@@ -45,6 +44,12 @@ class HttpUnavailableForLegalReasonsException extends HttpException {
         parent::__construct($message, $code, $previous);
 
         $this->reason = $reason;
+    }
+
+    public function toArray(): array {
+        $arr           = parent::toArray();
+        $arr['reason'] = $this->getReason();
+        return $arr;
     }
 
 }

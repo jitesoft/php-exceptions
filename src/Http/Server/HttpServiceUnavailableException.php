@@ -33,20 +33,26 @@ class HttpServiceUnavailableException extends HttpException {
      * HttpServiceUnavailableException constructor.
      *
      * @param string         $message
-     * @param int            $code
      * @param ?int           $retryAfter
+     * @param int            $code
      * @param Throwable|null $previous
      */
     public function __construct(
         string $message
             = 'Service is currently not able to handle the request.',
-        int $code = 503,
         ?int $retryAfter = null,
+        int $code = 503,
         ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
 
         $this->retryAfter = $retryAfter;
+    }
+
+    public function toArray(): array {
+        $arr                = parent::toArray();
+        $arr['retry-after'] = $this->getRetryAfter();
+        return $arr;
     }
 
 }
