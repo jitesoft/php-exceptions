@@ -1,32 +1,34 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  HttpBadGatewayException.php - Part of the php-exceptions project.
+  HttpToEarlyException.php - Part of the php-exceptions project.
 
   © - Jitesoft
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-namespace Jitesoft\Exceptions\Http\Server;
+namespace Jitesoft\Exceptions\Http\Client;
 
 use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
- * Class HttpBadGatewayException
+ * Class HttptoEarlyException
  *
- * Server http exception thrown when the server - working as a gateway - encounters
- * an error in the response from the server.
+ * Client http exception which is used to indicate that the server is unwilling
+ * to risk processing the request that might be replayed.
+ *
+ * This is an experimental http status code which might change.
  */
-class HttpBadGatewayException extends HttpException {
+class HttpToEarlyException extends HttpException {
 
     /**
-     * HttpBadGatewayException constructor.
+     * HttpToEarlyException constructor.
      *
      * @param string         $message
      * @param int            $code
      * @param Throwable|null $previous
      */
     public function __construct(
-        string $message = 'Bad Gateway.',
-        int $code = 502,
+        string $message = 'To early.',
+        int $code = 425,
         ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
