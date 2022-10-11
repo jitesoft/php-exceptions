@@ -12,19 +12,19 @@ use Jitesoft\Exceptions\Security\OAuth2\InvalidGrantException;
 
 class InvalidGrantExceptionTest extends OAuth2ExceptionTest {
 
-    public static function getTestProperties() {
+    public static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), ['grant']);
     }
 
-    public function throwDefaultException() {
+    public function throwDefaultException(): void {
         throw new InvalidGrantException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidGrantException($message, 'grant_name');
     }
 
-    public function testGetScope() {
+    public function testGetScope(): void {
         try {
             $this->throwMessageException('Test');
         } catch (InvalidGrantException $ex) {

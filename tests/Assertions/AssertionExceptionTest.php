@@ -11,33 +11,33 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 class AssertionExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'actual', 'expected' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new AssertionException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new AssertionException($message, "string", "array");
     }
 
-    public function testGetActual() {
+    public function testGetActual(): void {
         try {
             $this->throwMessageException("Hi!");
         } catch (AssertionException $ex) {
-            $this->assertEquals('string', $ex->getActual());
-            $this->assertEquals('string', $ex->actual);
+            self::assertEquals('string', $ex->getActual());
+            self::assertEquals('string', $ex->actual);
         }
     }
 
-    public function testGetExpected() {
+    public function testGetExpected(): void {
         try {
             $this->throwMessageException("Hi!");
         } catch (AssertionException $ex) {
-            $this->assertEquals('array', $ex->getExpected());
-            $this->assertEquals('array', $ex->expected);
+            self::assertEquals('array', $ex->getExpected());
+            self::assertEquals('array', $ex->expected);
         }
     }
 

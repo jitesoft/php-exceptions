@@ -15,24 +15,24 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class IOExceptionTest extends ExceptionTestCase {
 
-    public function testGetPath() {
+    public function testGetPath(): void {
         try {
             $this->throwMessageException("Test");
         } catch (IOException $ex) {
-            $this->assertEquals("/a/b/c", $ex->getPath());
-            $this->assertEquals("/a/b/c", $ex->path);
+            self::assertEquals("/a/b/c", $ex->getPath());
+            self::assertEquals("/a/b/c", $ex->path);
         }
     }
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'path' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new IOException();
     }
 
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new IOException($message,"/a/b/c");
     }
 }

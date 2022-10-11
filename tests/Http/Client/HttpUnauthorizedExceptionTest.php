@@ -19,11 +19,11 @@ class HttpUnauthorizedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 401;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpUnauthorizedException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpUnauthorizedException($message);
     }
 

@@ -19,11 +19,11 @@ class HttpForbiddenExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 403;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpForbiddenException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpForbiddenException($message);
     }
 

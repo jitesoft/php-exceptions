@@ -13,15 +13,15 @@ use Jitesoft\Exceptions\Xml\XPathException;
  */
 class XPathExceptionTest extends XmlExceptionTest {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'xpath' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new XPathException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new XPathException($message,"invalid", "invalid", "a.xml", "/a/b/c");
     }
 

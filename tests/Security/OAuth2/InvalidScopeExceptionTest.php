@@ -12,19 +12,19 @@ use Jitesoft\Exceptions\Security\OAuth2\InvalidScopeException;
 
 class InvalidScopeExceptionTest extends OAuth2ExceptionTest {
 
-    public static function getTestProperties() {
+    public static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), ['scope']);
     }
 
-    public function throwDefaultException() {
+    public function throwDefaultException(): void {
         throw new InvalidScopeException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidScopeException($message, 'scope_name');
     }
 
-    public function testGetScope() {
+    public function testGetScope(): void {
         try {
             $this->throwMessageException('Test');
         } catch (InvalidScopeException $ex) {

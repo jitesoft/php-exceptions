@@ -14,15 +14,15 @@ use Jitesoft\Exceptions\Json\InvalidJsonValueException;
  */
 class InvalidJsonValueExceptionTest extends JsonExceptionTest {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'property_name' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new InvalidJsonValueException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidJsonValueException($message,"test", "invalid", "/a/b/c", "a.json");
     }
 

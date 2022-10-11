@@ -19,11 +19,11 @@ class HttpRequestTimeoutExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 408;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpRequestTimeoutException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpRequestTimeoutException($message);
     }
 

@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\Xml\XmlSchemaValidationException;
  */
 class XmlSchemaValidationExceptionTest extends XmlSchemaExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new XmlSchemaValidationException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new XmlSchemaValidationException($message,"invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
     }
 

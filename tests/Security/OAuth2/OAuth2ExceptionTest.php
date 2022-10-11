@@ -11,11 +11,11 @@ use Jitesoft\Exceptions\Tests\Security\SecurityExceptionTest;
 
 class OAuth2ExceptionTest extends SecurityExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new OAuth2Exception();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new OAuth2Exception($message);
     }
 

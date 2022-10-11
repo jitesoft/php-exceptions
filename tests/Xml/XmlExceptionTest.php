@@ -15,15 +15,15 @@ use Jitesoft\Exceptions\Xml\XmlException;
  */
 class XmlExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'xml', 'file_path', 'file_name' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new XmlException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new XmlException($message,"invalid", "a.xml", "/a/b/c");
     }
 

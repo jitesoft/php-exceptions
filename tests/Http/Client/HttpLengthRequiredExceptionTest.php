@@ -19,11 +19,11 @@ class HttpLengthRequiredExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 411;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpLengthRequiredException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpLengthRequiredException($message);
     }
 

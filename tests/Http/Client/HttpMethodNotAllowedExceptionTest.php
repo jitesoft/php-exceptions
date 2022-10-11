@@ -19,11 +19,11 @@ class HttpMethodNotAllowedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 405;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpMethodNotAllowedException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpMethodNotAllowedException($message);
     }
 

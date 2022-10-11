@@ -16,11 +16,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class DatabaseExceptionTest extends ExceptionTestCase {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new DatabaseException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new DatabaseException($message);
     }
 }

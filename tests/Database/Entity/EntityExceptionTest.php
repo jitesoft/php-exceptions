@@ -16,33 +16,33 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class EntityExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), ['entity_id', 'entity_name']);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new EntityException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new EntityException($message, "TestEntity", 123);
     }
 
-    public function testGetEntityId() {
+    public function testGetEntityId(): void {
         try {
             $this->throwMessageException('test');
         } catch (EntityException $ex) {
-            $this->assertEquals(123, $ex->getEntityId());
-            $this->assertEquals(123, $ex->entityId);
+            self::assertEquals(123, $ex->getEntityId());
+            self::assertEquals(123, $ex->entityId);
         }
     }
 
-    public function testGetEntityName() {
+    public function testGetEntityName(): void {
         try {
             $this->throwMessageException('test');
         } catch (EntityException $ex) {
-            $this->assertEquals("TestEntity", $ex->getEntityName());
-            $this->assertEquals("TestEntity", $ex->entityName);
+            self::assertEquals("TestEntity", $ex->getEntityName());
+            self::assertEquals("TestEntity", $ex->entityName);
         }
     }
 

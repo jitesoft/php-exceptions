@@ -9,14 +9,14 @@ class ClientExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new ClientException();
     }
 
     /**
      * @throws JitesoftException
      */
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new ClientException($message);
     }
 }

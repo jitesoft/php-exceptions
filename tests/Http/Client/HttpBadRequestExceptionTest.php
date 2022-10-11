@@ -19,11 +19,11 @@ class HttpBadRequestExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 400;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpBadRequestException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpBadRequestException($message);
     }
 

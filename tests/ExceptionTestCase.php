@@ -17,14 +17,14 @@ use ReflectionParameter;
  */
 abstract class ExceptionTestCase extends TestCase {
 
-    public final function testGetDefaultMessage() {
+    final public function testGetDefaultMessage(): void {
         try {
             $this->throwDefaultException();
         } catch (JitesoftException $ex) {
 
             $message = array_filter(
                 (new ReflectionClass(get_class($ex)))->getConstructor()->getParameters(),
-                function(ReflectionParameter $parm) {
+                static function(ReflectionParameter $parm) {
                     return $parm->getName() === "message";
                 }
             );
@@ -41,7 +41,7 @@ abstract class ExceptionTestCase extends TestCase {
         }
     }
 
-    public final function testGetNoneDefaultMessage() {
+    final public function testGetNoneDefaultMessage(): void {
         try {
             $this->throwMessageException("Test");
         } catch (JitesoftException $ex) {
@@ -52,14 +52,14 @@ abstract class ExceptionTestCase extends TestCase {
     /**
      * @throws JitesoftException
      */
-    protected abstract function throwDefaultException();
+    abstract protected function throwDefaultException(): void;
 
     /**
      * @throws JitesoftException
      */
-    protected abstract function throwMessageException(string $message);
+    abstract protected function throwMessageException(string $message): void;
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return [
             "type",
             "error",
@@ -71,7 +71,10 @@ abstract class ExceptionTestCase extends TestCase {
         ];
     }
 
-    public final function testHasProperties() {
+    /**
+     * @return void
+     */
+    final public function testHasProperties(): void {
         try {
             $this->throwDefaultException();
         } catch (JitesoftException $ex) {
@@ -82,8 +85,9 @@ abstract class ExceptionTestCase extends TestCase {
     /**
      * @param array $ex
      * @param array $properties
+     * @return void
      */
-    protected final function assertHasProperties(array $ex, array $properties) {
+    final protected function assertHasProperties(array $ex, array $properties): void {
         foreach ($properties as $property) {
             $o = self::arrayHasKey($property);
             if (!$o->evaluate($ex, '', true)) {

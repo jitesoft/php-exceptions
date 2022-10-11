@@ -12,7 +12,7 @@ class RequestExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         $mock = $this->createMock(RequestInterface::class);
         throw new RequestException($mock);
     }
@@ -20,7 +20,7 @@ class RequestExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         $mock = $this->createMock(RequestInterface::class);
         throw new RequestException($mock, $message);
     }

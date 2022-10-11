@@ -16,11 +16,12 @@ use PHPUnit\Util\InvalidArgumentHelper;
  */
 class JitesoftExceptionTest extends ExceptionTestCase {
 
-    public function testGetInvalid() {
+    public function testGetInvalid(): void {
         try {
             throw new TestException();
         } catch (JitesoftException $ex) {
-            $this->assertNull($ex->abcdefghijklmnopqrstuvwxyzåäö);
+            /** @noinspection PhpUndefinedFieldInspection */
+            self::assertNull($ex->abcdefghijklmnopqrstuvwxyz);
         }
     }
 
@@ -34,8 +35,6 @@ class JitesoftExceptionTest extends ExceptionTestCase {
      */
     public static function tempAssertArraySubset($subset, $array, bool $checkForObjectIdentity = false, string $message = ''): void
     {
-
-
         if (!(\is_array($subset) || $subset instanceof ArrayAccess)) {
             throw InvalidArgumentHelper::factory(
                 1,
@@ -55,28 +54,27 @@ class JitesoftExceptionTest extends ExceptionTestCase {
         static::assertThat($array, $constraint, $message);
     }
 
-    public function testInnerExceptionWhichIsInherited() {
+    public function testInnerExceptionWhichIsInherited(): void {
         try {
             throw new TestException("test outer", 1, new TestException("test inner", 2, null));
         } catch (JitesoftException $ex) {
-            $this->assertInstanceOf(TestException::class, $ex);
-            $this->assertInstanceOf(TestException::class, $ex->getPrevious());
+            self::assertInstanceOf(TestException::class, $ex);
+            self::assertInstanceOf(TestException::class, $ex->getPrevious());
 
-            $this->assertEquals("test outer", $ex->getMessage());
-            $this->assertEquals(1, $ex->getCode());
+            self::assertEquals("test outer", $ex->getMessage());
+            self::assertEquals(1, $ex->getCode());
 
-            $this->assertEquals("test inner", $ex->getPrevious()->getMessage());
-            $this->assertEquals(2, $ex->getPrevious()->getCode());
+            self::assertEquals("test inner", $ex->getPrevious()->getMessage());
+            self::assertEquals(2, $ex->getPrevious()->getCode());
 
-            /** @noinspection PhpDeprecationInspection */
-            $this->tempAssertArraySubset([
+            self::tempAssertArraySubset([
                 "type"  => TestException::class,
                 "error" => "test outer",
                 "code"  => 1,
                 "trace" => [
                     0 => [
                         "function" => "testInnerExceptionWhichIsInherited",
-                        'class' => JitesoftExceptionTest::class
+                        'class' => __CLASS__
                     ]
                 ],
                 "file"  => (new \ReflectionClass($this))->getFileName(),
@@ -88,37 +86,36 @@ class JitesoftExceptionTest extends ExceptionTestCase {
                     "trace" => [
                         0 => [
                             "function" => "testInnerExceptionWhichIsInherited",
-                            'class' => JitesoftExceptionTest::class
+                            'class' => __CLASS__
                         ]
                     ]
                 ]
             ], $ex->toArray());
 
-            $this->assertEquals(json_encode($ex), json_encode($ex->toArray()));
+            /** @noinspection PhpUnhandledExceptionInspection */
+            self::assertEquals(json_encode($ex, JSON_THROW_ON_ERROR), json_encode($ex->toArray(), JSON_THROW_ON_ERROR));
         }
     }
 
-    public function testInnerExceptionIsSpException() {
+    public function testInnerExceptionIsSpException(): void {
         try {
             throw new TestException("test outer", 1, new Exception("test inner", 2, null));
         } catch (JitesoftException $ex) {
-            $this->assertInstanceOf(TestException::class, $ex);
-            $this->assertInstanceOf(Exception::class, $ex->getPrevious());
+            self::assertInstanceOf(TestException::class, $ex);
+            self::assertInstanceOf(Exception::class, $ex->getPrevious());
+            self::assertEquals("test outer", $ex->getMessage());
+            self::assertEquals(1, $ex->getCode());
+            self::assertEquals("test inner", $ex->getPrevious()->getMessage());
+            self::assertEquals(2, $ex->getPrevious()->getCode());
 
-            $this->assertEquals("test outer", $ex->getMessage());
-            $this->assertEquals(1, $ex->getCode());
-
-            $this->assertEquals("test inner", $ex->getPrevious()->getMessage());
-            $this->assertEquals(2, $ex->getPrevious()->getCode());
-
-            $this->tempAssertArraySubset([
+            self::tempAssertArraySubset([
                 "type"  => TestException::class,
                 "error" => "test outer",
                 "code"  => 1,
                 "trace" => [
                     0 => [
                         "function" => "testInnerExceptionIsSpException",
-                        'class' => JitesoftExceptionTest::class
+                        'class' => __CLASS__
                     ]
                 ],
                 "file"  => (new \ReflectionClass($this))->getFileName(),
@@ -130,22 +127,22 @@ class JitesoftExceptionTest extends ExceptionTestCase {
                     "trace" => [
                         0 => [
                             "function" => "testInnerExceptionIsSpException",
-                            'class' => JitesoftExceptionTest::class
-
+                            'class' => __CLASS__
                         ]
                     ]
                 ]
             ], $ex->toArray());
 
-            $this->assertEquals(json_encode($ex), json_encode($ex->toArray()));
+            /** @noinspection PhpUnhandledExceptionInspection */
+            $this->assertEquals(json_encode($ex, JSON_THROW_ON_ERROR), json_encode($ex->toArray(), JSON_THROW_ON_ERROR));
         }
     }
 
-    protected function throwDefaultException(): \Jitesoft\Exceptions\JitesoftException {
+    protected function throwDefaultException(): void {
         throw new TestException();
     }
 
-    public function throwMessageException(string $message): \Jitesoft\Exceptions\JitesoftException {
+    public function throwMessageException(string $message): void {
         throw new TestException($message);
     }
 }

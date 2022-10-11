@@ -19,15 +19,15 @@ class HttpUpgradeRequiredExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 426;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpUpgradeRequiredException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message) : void {
         throw new HttpUpgradeRequiredException($message);
     }
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), ['protocol']);
     }
 

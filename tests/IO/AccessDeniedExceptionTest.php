@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\IO\AccessDeniedException;
  */
 class AccessDeniedExceptionTest extends IOExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new AccessDeniedException();
     }
 
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new AccessDeniedException($message,"/a/b/c");
     }
 

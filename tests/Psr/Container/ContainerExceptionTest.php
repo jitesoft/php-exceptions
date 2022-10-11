@@ -15,14 +15,14 @@ class ContainerExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new ContainerException();
     }
 
     /**
      * @throws JitesoftException
      */
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new ContainerException($message);
     }
 }

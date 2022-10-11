@@ -10,11 +10,11 @@ use Jitesoft\Exceptions\Database\Entity\DuplicateEntityException;
 
 class DuplicateEntityExceptionTest extends EntityExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new DuplicateEntityException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new DuplicateEntityException($message, "TestEntity", 123);
     }
 
