@@ -29,8 +29,8 @@ class XPathExceptionTest extends XmlExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (XPathException $ex) {
-            $this->assertEquals("invalid", $ex->getXPath());
-            $this->assertEquals("invalid", $ex->xPath);
+            self::assertEquals("invalid", $ex->getXPath());
+            self::assertEquals("invalid", $ex->xPath);
         }
     }
 

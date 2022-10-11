@@ -34,7 +34,7 @@ class InvalidKeyExceptionTest extends ExceptionTestCase {
         try {
             $this->throwMessageException('abc');
         } catch (InvalidKeyException $ex) {
-            $this->assertEquals('testKey', $ex->getKeyName());
+            self::assertEquals('testKey', $ex->getKeyName());
         }
     }
 

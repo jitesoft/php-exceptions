@@ -30,8 +30,8 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (XmlSchemaException $ex) {
-            $this->assertEquals("invalid", $ex->schema);
-            $this->assertEquals("invalid", $ex->getSchema());
+            self::assertEquals("invalid", $ex->schema);
+            self::assertEquals("invalid", $ex->getSchema());
         }
     }
 
@@ -39,8 +39,8 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (XmlSchemaException $ex) {
-            $this->assertEquals("/a/b/c/d", $ex->schemaPath);
-            $this->assertEquals("/a/b/c/d", $ex->getSchemaPath());
+            self::assertEquals("/a/b/c/d", $ex->schemaPath);
+            self::assertEquals("/a/b/c/d", $ex->getSchemaPath());
         }
     }
 
@@ -48,8 +48,8 @@ class XmlSchemaExceptionTest extends XmlExceptionTest {
         try {
             $this->throwMessageException("Test");
         } catch (XmlSchemaException $ex) {
-            $this->assertEquals("a.xsd", $ex->getSchemaName());
-            $this->assertEquals("a.xsd", $ex->schemaName);
+            self::assertEquals("a.xsd", $ex->getSchemaName());
+            self::assertEquals("a.xsd", $ex->schemaName);
         }}
 
 }

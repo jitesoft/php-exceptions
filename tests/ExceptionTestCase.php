@@ -31,13 +31,13 @@ abstract class ExceptionTestCase extends TestCase {
             $message = array_values($message);
 
             /** @var $message ReflectionParameter[] */
-            $this->assertNotEmpty($message);
+            self::assertNotEmpty($message);
 
             $message = $message[0]->getDefaultValue();
             $count   = substr_count($message, '%s');
             $args    = array_fill(0, $count, '');
 
-            $this->assertEquals(sprintf($message, ...$args), $ex->getMessage());
+            self::assertEquals(sprintf($message, ...$args), $ex->getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ abstract class ExceptionTestCase extends TestCase {
         try {
             $this->throwMessageException("Test");
         } catch (JitesoftException $ex) {
-            $this->assertEquals("Test", $ex->getMessage());
+            self::assertEquals("Test", $ex->getMessage());
         }
     }
 
@@ -78,7 +78,7 @@ abstract class ExceptionTestCase extends TestCase {
         try {
             $this->throwDefaultException();
         } catch (JitesoftException $ex) {
-            $this->assertHasProperties($ex->toArray(), static::getTestProperties());
+            self::assertHasProperties($ex->toArray(), static::getTestProperties());
         }
     }
 
