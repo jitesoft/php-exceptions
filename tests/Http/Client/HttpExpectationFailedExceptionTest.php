@@ -19,11 +19,11 @@ class HttpExpectationFailedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 417;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpExpectationFailedException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpExpectationFailedException($message);
     }
 

@@ -14,15 +14,15 @@ use Jitesoft\Exceptions\Xml\XmlSchemaException;
  */
 class XmlSchemaExceptionTest extends XmlExceptionTest {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'schema', 'schema_path', 'schema_name' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new XmlSchemaException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new XmlSchemaException($message,"invalid", "invalid", "a.xsd", "/a/b/c/d", "a.xml", "/a/b/c");
     }
 

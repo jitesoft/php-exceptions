@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class SecurityExceptionTest extends ExceptionTestCase {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new SecurityException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new SecurityException($message);
     }
 

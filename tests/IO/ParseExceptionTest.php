@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\IO\ParseException;
  */
 class ParseExceptionTest extends FileExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new ParseException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new ParseException($message,"a.txt", "/a/b/c");
     }
 

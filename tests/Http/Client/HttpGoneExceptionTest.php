@@ -19,11 +19,11 @@ class HttpGoneExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 410;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpGoneException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpGoneException($message);
     }
 

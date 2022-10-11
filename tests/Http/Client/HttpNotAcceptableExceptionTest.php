@@ -20,11 +20,11 @@ class HttpNotAcceptableExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 406;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpNotAcceptableException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpNotAcceptableException($message);
     }
 

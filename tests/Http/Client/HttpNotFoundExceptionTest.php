@@ -19,11 +19,11 @@ class HttpNotFoundExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 404;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpNotFoundException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpNotFoundException($message);
     }
 

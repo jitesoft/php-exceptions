@@ -19,11 +19,11 @@ class HttpUnsupportedMediaTypeExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 415;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpUnsupportedMediaTypeException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message) : void {
         throw new HttpUnsupportedMediaTypeException($message);
     }
 

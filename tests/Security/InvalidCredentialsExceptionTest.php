@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\Security\InvalidCredentialsException;
  */
 class InvalidCredentialsExceptionTest extends AuthenticationExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new InvalidCredentialsException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidCredentialsException($message);
     }
 

@@ -16,15 +16,15 @@ use Jitesoft\Exceptions\IO\FileException;
  */
 class FileExceptionTest extends IOExceptionTest {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'file_name' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new FileException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new FileException("Test", "a.txt", "/a/b/c");
     }
 

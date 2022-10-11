@@ -12,14 +12,11 @@ use PHPUnit\Framework\Constraint\Constraint;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use Traversable;
 
-final class ArraySubsetConstraint extends Constraint
-{
-    /** @var iterable|mixed[] */
-    private $subset;
+final class ArraySubsetConstraint extends Constraint {
+    private iterable $subset;
     private bool $strict;
 
-    public function __construct(iterable $subset, bool $strict = false)
-    {
+    public function __construct(iterable $subset, bool $strict = false) {
         $this->strict = $strict;
         $this->subset = $subset;
     }
@@ -31,6 +28,7 @@ final class ArraySubsetConstraint extends Constraint
         if ($this->strict) {
             $result = $other === $patched;
         } else {
+            /** @noinspection TypeUnsafeComparisonInspection */
             $result = $other == $patched;
         }
         if ($returnResult) {
@@ -47,6 +45,8 @@ final class ArraySubsetConstraint extends Constraint
             var_export($other, true)
         );
         $this->fail($other, $description, $f);
+
+        return null;
     }
 
     public function toString(): string {

@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class ApplicationExceptionTest extends ExceptionTestCase {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new ApplicationException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new ApplicationException($message);
     }
 

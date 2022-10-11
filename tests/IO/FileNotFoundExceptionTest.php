@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\IO\FileNotFoundException;
  */
 class FileNotFoundExceptionTest extends FileExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new FileNotFoundException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new FileNotFoundException($message, "a.txt", "/a/b/c");
     }
 }

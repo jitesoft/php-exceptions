@@ -19,11 +19,11 @@ class HttpImATeapotExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 418;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpImATeapotException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpImATeapotException($message);
     }
 

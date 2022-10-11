@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\Json\InvalidJsonException;
  */
 class InvalidJsonExceptionTest extends JsonExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new InvalidJsonException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidJsonException($message,"invalid", "/a/b/c", "a.json");
     }
 }

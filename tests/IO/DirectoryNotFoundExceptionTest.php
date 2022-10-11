@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\IO\DirectoryNotFundException;
  */
 class DirectoryNotFoundExceptionTest extends DirectoryExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new DirectoryNotFundException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new DirectoryNotFundException($message, "/a/b/c");
     }
 

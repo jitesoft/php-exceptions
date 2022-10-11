@@ -19,11 +19,11 @@ class HttpConflictExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 409;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpConflictException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpConflictException($message);
     }
 

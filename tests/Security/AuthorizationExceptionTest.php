@@ -1,25 +1,26 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-  AuthenticationExceptionTest.php - Part of the php-exceptions project.
+  AuthorizationExceptionTest.php - Part of the php-exceptions project.
 
   © - Jitesoft
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Tests\Security;
 
 use Jitesoft\Exceptions\Security\AuthenticationException;
+use Jitesoft\Exceptions\Security\AuthorizationException;
 
 /**
  * @group SecurityExceptions
- * @group AuthenticationExceptions
+ * @group AuthorizationExceptionTest
  */
-class AuthenticationExceptionTest extends SecurityExceptionTest {
+class AuthorizationExceptionTest extends SecurityExceptionTest {
 
     protected function throwDefaultException(): void {
         throw new AuthenticationException();
     }
 
     public function throwMessageException(string $message): void {
-        throw new AuthenticationException($message);
+        throw new AuthorizationException($message);
     }
 
 }

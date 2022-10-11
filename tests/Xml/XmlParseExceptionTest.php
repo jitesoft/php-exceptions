@@ -13,11 +13,11 @@ use Jitesoft\Exceptions\Xml\XmlParseException;
  */
 class XmlParseExceptionTest extends XmlExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new XmlParseException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new XmlParseException($message,"invalid", "a.xml", "/a/b/c");
     }
 

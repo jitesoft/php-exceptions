@@ -14,7 +14,7 @@ class NetworkExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new NetworkException(new class implements RequestInterface{
             public function getProtocolVersion() { }
             public function withProtocolVersion($version) { }
@@ -39,7 +39,7 @@ class NetworkExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
 
         $mock = $this->createMock(RequestInterface::class);
 

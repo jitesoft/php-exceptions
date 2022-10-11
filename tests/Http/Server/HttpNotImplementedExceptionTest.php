@@ -19,11 +19,11 @@ class HttpNotImplementedExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 501;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpNotImplementedException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpNotImplementedException($message);
     }
 

@@ -14,11 +14,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class InvalidOperationExceptionTest extends ExceptionTestCase {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new InvalidOperationException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new InvalidOperationException($message);
     }
 

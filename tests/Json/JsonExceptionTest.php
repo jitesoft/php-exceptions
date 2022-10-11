@@ -15,15 +15,15 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class JsonExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'json', 'file_name', 'file_path' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new JsonException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new JsonException($message,"invalid", "/a/b/c", "a.json");
     }
 

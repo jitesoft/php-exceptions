@@ -14,7 +14,7 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 class OutOfBoundsExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(['index', 'size'], parent::getTestProperties());
     }
 
@@ -22,18 +22,18 @@ class OutOfBoundsExceptionTest extends ExceptionTestCase {
     /**
      * @throws JitesoftException
      */
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new OutOfBoundsException();
     }
 
     /**
      * @throws JitesoftException
      */
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new OutOfBoundsException($message, 10, 9);
     }
 
-    public function testGetIndex() {
+    public function testGetIndex(): void {
         try {
             $this->throwMessageException('abc');
         } catch (OutOfBoundsException $ex) {
@@ -42,7 +42,7 @@ class OutOfBoundsExceptionTest extends ExceptionTestCase {
         }
     }
 
-    public function testGetSize() {
+    public function testGetSize(): void {
         try {
             $this->throwMessageException('abc');
         } catch (OutOfBoundsException $ex) {

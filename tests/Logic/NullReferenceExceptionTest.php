@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
  */
 class NullReferenceExceptionTest extends ExceptionTestCase {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new NullReferenceException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new NullReferenceException($message);
     }
 

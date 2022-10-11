@@ -10,11 +10,11 @@ use Jitesoft\Exceptions\Database\Entity\UniqueConstraintException;
 
 class UniqueConstraintExceptionTest extends EntityExceptionTest {
 
-    public function throwDefaultException() {
+    public function throwDefaultException(): void {
         throw new UniqueConstraintException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new UniqueConstraintException($message, 'TestEntity', 123);
     }
 

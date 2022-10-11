@@ -19,11 +19,11 @@ class HttpInternalServerErrorExceptionTest extends HttpExceptionTest {
 
     protected $expectedErrorCode = 500;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpInternalServerErrorException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new HttpInternalServerErrorException($message);
     }
 

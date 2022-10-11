@@ -11,15 +11,15 @@ use Jitesoft\Exceptions\Tests\ExceptionTestCase;
 
 class InvalidArgumentExceptionTest extends ExceptionTestCase {
 
-    protected static function getTestProperties() {
+    protected static function getTestProperties(): array {
         return array_merge(parent::getTestProperties(), [ 'argumentName', 'methodName', 'className' ]);
     }
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new InvalidArgumentException();
     }
 
-    protected function throwMessageException(string $message) {
+    protected function throwMessageException(string $message): void {
         throw new InvalidArgumentException(
             $message,
             '$message',
@@ -27,7 +27,7 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
             'InvalidArgumentExceptionTest');
     }
 
-    public function testGetArgumentName() {
+    public function testGetArgumentName(): void {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {
@@ -36,7 +36,7 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
         }
     }
 
-    public function testGetMethodName() {
+    public function testGetMethodName(): void {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {
@@ -45,7 +45,7 @@ class InvalidArgumentExceptionTest extends ExceptionTestCase {
         }
     }
 
-    public function testGetClassName() {
+    public function testGetClassName(): void {
         try {
             $this->throwMessageException("Test");
         } catch(InvalidArgumentException $ex) {

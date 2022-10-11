@@ -19,19 +19,19 @@ class HttpExceptionTest extends ExceptionTestCase {
 
     protected $expectedErrorCode = 0;
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new HttpException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message) : void{
         throw new HttpException($message);
     }
 
-    public function testDefaultErrorCode() {
+    public function testDefaultErrorCode(): void {
         try {
-            throw $this->throwDefaultException();
+            $this->throwDefaultException();
         } catch (JitesoftException $ex) {
-            $this->assertEquals($this->expectedErrorCode, $ex->getCode());
+            self::assertEquals($this->expectedErrorCode, $ex->getCode());
         }
     }
 }

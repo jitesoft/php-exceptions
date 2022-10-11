@@ -15,11 +15,11 @@ use Jitesoft\Exceptions\IO\DirectoryException;
  */
 class DirectoryExceptionTest extends IOExceptionTest {
 
-    protected function throwDefaultException() {
+    protected function throwDefaultException(): void {
         throw new DirectoryException();
     }
 
-    public function throwMessageException(string $message) {
+    public function throwMessageException(string $message): void {
         throw new DirectoryException($message,"/a/b/c");
     }
 }
