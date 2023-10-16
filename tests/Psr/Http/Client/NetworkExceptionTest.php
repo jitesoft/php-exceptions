@@ -16,23 +16,23 @@ class NetworkExceptionTest extends ExceptionTestCase {
      */
     protected function throwDefaultException(): void {
         throw new NetworkException(new class implements RequestInterface{
-            public function getProtocolVersion() { }
-            public function withProtocolVersion($version) { }
-            public function getHeaders() {}
-            public function hasHeader($name) {}
-            public function getHeader($name) {}
-            public function getHeaderLine($name) {}
-            public function withHeader($name, $value) {}
-            public function withAddedHeader($name, $value) {}
-            public function withoutHeader($name) {}
-            public function getBody() {}
-            public function withBody(StreamInterface $body) {}
-            public function getRequestTarget() {}
-            public function withRequestTarget($requestTarget) {}
-            public function getMethod() {}
-            public function withMethod($method) {}
-            public function getUri() {}
-            public function withUri(UriInterface $uri, $preserveHost = false) {}
+            public function getProtocolVersion(): string { }
+            public function withProtocolVersion($version): \Psr\Http\Message\MessageInterface { }
+            public function getHeaders(): array {}
+            public function hasHeader($name): bool {}
+            public function getHeader($name): array {}
+            public function getHeaderLine($name): string {}
+            public function withHeader($name, $value): \Psr\Http\Message\MessageInterface {}
+            public function withAddedHeader($name, $value): \Psr\Http\Message\MessageInterface {}
+            public function withoutHeader($name): \Psr\Http\Message\MessageInterface {}
+            public function getBody(): StreamInterface {}
+            public function withBody(StreamInterface $body): \Psr\Http\Message\MessageInterface {}
+            public function getRequestTarget(): string {}
+            public function withRequestTarget($requestTarget): RequestInterface {}
+            public function getMethod(): string {}
+            public function withMethod($method): RequestInterface {}
+            public function getUri(): UriInterface {}
+            public function withUri(UriInterface $uri, $preserveHost = false): RequestInterface {}
         });
     }
 
