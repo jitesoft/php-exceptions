@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when the content requested could not be sent due to the client accept header.
  */
-class HttpNotAcceptableException extends HttpException {
+class HttpNotAcceptableException extends HttpClientException {
 
     /**
      * HttpNotAcceptableException constructor.

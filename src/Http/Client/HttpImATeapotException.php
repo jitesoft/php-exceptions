@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Jitesoft\Exceptions\Http\Server\HttpNotImplementedException;
 use Throwable;
 
@@ -18,7 +17,7 @@ use Throwable;
  * This is a standardized joke, the http error is sometimes used to indicate that something is not
  * fully implemented (in which case @see HttpNotImplementedException would be preferable.
  */
-class HttpImATeapotException extends HttpException {
+class HttpImATeapotException extends HttpClientException {
 
     /**
      * HttpImATeapotException constructor.

@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when a resource was requested that the client was not authorized to receive.
  */
-class HttpUnauthorizedException extends HttpException {
+class HttpUnauthorizedException extends HttpClientException {
 
     /**
      * HttpUnauthorizedException constructor.

@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when a resource has been removed and will not be available again.
  */
-class HttpGoneException extends HttpException {
+class HttpGoneException extends HttpClientException {
 
     /**
      * HttpGoneException constructor.

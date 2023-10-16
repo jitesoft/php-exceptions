@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when the requested resource was not found.
  */
-class HttpNotFoundException extends HttpException {
+class HttpNotFoundException extends HttpClientException {
 
     /**
      * HttpNotFoundException constructor.

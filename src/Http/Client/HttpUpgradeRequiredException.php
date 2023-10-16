@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -17,7 +16,7 @@ use Throwable;
  *
  * @property string $protocol
  */
-class HttpUpgradeRequiredException extends HttpException {
+class HttpUpgradeRequiredException extends HttpClientException {
     protected string $protocol;
 
     /**

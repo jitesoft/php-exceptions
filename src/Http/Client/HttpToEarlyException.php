@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -17,7 +16,7 @@ use Throwable;
  *
  * This is an experimental http status code which might change.
  */
-class HttpToEarlyException extends HttpException {
+class HttpToEarlyException extends HttpClientException {
 
     /**
      * HttpToEarlyException constructor.

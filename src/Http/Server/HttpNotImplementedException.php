@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Server;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -15,7 +14,7 @@ use Throwable;
  * Server http exception thrown when a requested method or route has not yet been implemented.
  * This exception should be used when the request will be implemented later.
  */
-class HttpNotImplementedException extends HttpException {
+class HttpNotImplementedException extends HttpServerException {
 
     /**
      * HttpNotImplementedException constructor.
