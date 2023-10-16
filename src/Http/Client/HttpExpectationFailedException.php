@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when server could not meet the requirements of the `expect` header.
  */
-class HttpExpectationFailedException extends HttpException {
+class HttpExpectationFailedException extends HttpClientException {
 
     /**
      * HttpExpectationFailedException constructor.

@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -15,7 +14,7 @@ use Throwable;
  * Client http exception thrown when a requested resource is unavailable
  * due to legal reasons hence can't be served.
  */
-class HttpUnavailableForLegalReasonsException extends HttpException {
+class HttpUnavailableForLegalReasonsException extends HttpClientException {
     protected ?string $reason;
 
     /**

@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Server;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Server http exception thrown on internal server errors.
  */
-class HttpInternalServerErrorException extends HttpException {
+class HttpInternalServerErrorException extends HttpServerException {
 
     /**
      * HttpInternalServerErrorException constructor.

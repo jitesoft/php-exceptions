@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when the server timed out awaiting an expected client requrest.
  */
-class HttpRequestTimeoutException extends HttpException {
+class HttpRequestTimeoutException extends HttpClientException {
 
     /**
      * HttpRequestTimeoutException constructor.

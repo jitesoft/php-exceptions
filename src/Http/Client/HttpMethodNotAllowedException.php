@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when a request method was not supported for the given resource.
  */
-class HttpMethodNotAllowedException extends HttpException {
+class HttpMethodNotAllowedException extends HttpClientException {
 
     /**
      * HttpMethodNotAllowedException constructor.

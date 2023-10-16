@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when a forbidden resource.
  */
-class HttpForbiddenException extends HttpException {
+class HttpForbiddenException extends HttpClientException {
 
     /**
      * HttpForbiddenException constructor.

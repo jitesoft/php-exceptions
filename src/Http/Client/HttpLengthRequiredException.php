@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when a content length was not supplied by the client but required by the server.
  */
-class HttpLengthRequiredException extends HttpException {
+class HttpLengthRequiredException extends HttpClientException {
 
     /**
      * HttpLengthRequiredException constructor.

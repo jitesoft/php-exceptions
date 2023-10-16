@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown when the request resource or entity have a media type not accepted by the server.
  */
-class HttpUnsupportedMediaTypeException extends HttpException {
+class HttpUnsupportedMediaTypeException extends HttpClientException {
 
     /**
      * HttpUnsupportedMediaTypeException constructor.

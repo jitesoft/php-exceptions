@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Server;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -15,7 +14,7 @@ use Throwable;
  * Server http exception thrown when the server - working as a gateway - encounters
  * an error in the response from the server.
  */
-class HttpBadGatewayException extends HttpException {
+class HttpBadGatewayException extends HttpServerException {
 
     /**
      * HttpBadGatewayException constructor.

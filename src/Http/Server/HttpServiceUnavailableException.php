@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Server;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -17,7 +16,7 @@ use Throwable;
  * It is recommended to set the retry-after header in the response to allow the client
  * to retry the request after the given time.
  */
-class HttpServiceUnavailableException extends HttpException {
+class HttpServiceUnavailableException extends HttpServerException {
     protected ?int $retryAfter;
 
     /**

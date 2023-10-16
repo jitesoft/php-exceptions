@@ -6,7 +6,6 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -14,7 +13,7 @@ use Throwable;
  *
  * Client http exception thrown for bad request errors.
  */
-class HttpBadRequestException extends HttpException {
+class HttpBadRequestException extends HttpClientException {
 
     /**
      * HttpBadRequestException constructor.

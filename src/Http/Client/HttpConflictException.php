@@ -1,5 +1,4 @@
 <?php
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
   HttpConflictException.php - Part of the php-exceptions project.
 
@@ -8,7 +7,6 @@
 
 namespace Jitesoft\Exceptions\Http\Client;
 
-use Jitesoft\Exceptions\Http\HttpException;
 use Throwable;
 
 /**
@@ -16,7 +14,7 @@ use Throwable;
  *
  * Client http exception thrown on http conflict errors.
  */
-class HttpConflictException extends HttpException {
+class HttpConflictException extends HttpClientException {
 
     /**
      * HttpConflictException constructor.
