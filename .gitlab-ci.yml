@@ -1,5 +1,6 @@
 variables:
   PHP_COMMON_SNIFF_FILE: ruleset.xml
+  PHP_AUTO_SKIP: "7.4,8.0"
 
 include:
   - file: /Auto/php.yml
